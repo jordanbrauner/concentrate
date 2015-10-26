@@ -21,14 +21,14 @@ body {
 }
 
 #game-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: #999;
   position: absolute;
-  margin: 0 auto;
-  top: 90px;
-  padding: 0px 0px 0px 70px;
-  letter-spacing: 2px;
+  top: 75px;
+  padding: 0px 0px 0px 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 3px;
 }
 
 #wrapper {
@@ -43,11 +43,17 @@ body {
   position: absolute;
   top: 150px;
   background-color: white;
-  height: 640px;
+  height: 615px;
   width: 550px;
   box-shadow: 0px 5px 15px #999;
   /*margin: 0 auto;*/
 }
+
+
+
+/*******************************
+UI
+*******************************/
 
 #quote-wrapper {
   margin: 20px 0px 20px 0px;
@@ -56,7 +62,7 @@ body {
 #drop-quote {
   float: left;
   display: inline-block;
-  margin: 13px 10px 0px 40px;
+  margin: 13px 16px 0px 40px;
   font-family: sans-serif;
   font-size: 55px;
   font-weight: 700;
@@ -78,6 +84,39 @@ body {
   text-transform: uppercase;
 }
 
+#matched-wrapper {
+  position: absolute;
+  height: 30px;
+  width: 250px;
+  padding: 28px 0px 0px 82px;
+}
+
+#symbol {
+  position: absolute;
+  background-color: slategray;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+}
+
+#guesses {
+  position: absolute;
+  right: 90px;
+  top: 96px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  color: #6e6e6e;
+}
+
+#guesses-left {
+  position: absolute;
+  right: 90px;
+  top: 150px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: #999;
+}
+
 /*#board-border {
   position: absolute;
   margin: 10px auto 10px auto;
@@ -86,10 +125,16 @@ body {
   border: 1px solid #e3e3e3;
 }*/
 
+
+
+/*******************************
+TILES
+*******************************/
+
 #tile-wrapper {
   position: absolute;
   left: 75px;
-  bottom: 55px;
+  bottom: 57px;
   margin-top: 40px;
   height: 390px;
   width: 410px;
@@ -101,9 +146,26 @@ body {
   background-color: #e3e3e3;
   height: 85px;
   width: 85px;
-  border-radius: 7px;
+  border-radius: 5px;
   margin: 7px;
 }
+
+.tile {
+  display: inline-block;
+  background-color: #e3e3e3;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.tile:hover {
+  background-color: #f3f3f3;
+}
+
+/*.tile:active {
+  background-color: yellow;
+}*/
 
 #tileBack {
   margin-top: 18px;
