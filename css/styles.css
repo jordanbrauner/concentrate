@@ -1,0 +1,115 @@
+/*******************************
+CORE STYLES
+*******************************/
+
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+
+/*******************************
+GAMEBOARD
+*******************************/
+
+body {
+  background-image: url('../images/bg.jpg');
+  background-size: 90px 90px;
+  background-repeat: repeat;
+  /*background: #d0d0d0;*/
+}
+
+#game-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #999;
+  position: absolute;
+  margin: 0 auto;
+  top: 90px;
+  padding: 0px 0px 0px 70px;
+  letter-spacing: 2px;
+}
+
+#wrapper {
+  position: relative;
+  height: 750px;
+  width: 550px;
+  margin: 0 auto;
+  /*background: #d0d0d0;*/
+}
+
+#board {
+  position: absolute;
+  top: 150px;
+  background-color: white;
+  height: 640px;
+  width: 550px;
+  box-shadow: 0px 5px 15px #999;
+  /*margin: 0 auto;*/
+}
+
+#quote-wrapper {
+  margin: 20px 0px 20px 0px;
+}
+
+#drop-quote {
+  float: left;
+  display: inline-block;
+  margin: 13px 10px 0px 40px;
+  font-family: sans-serif;
+  font-size: 55px;
+  font-weight: 700;
+  color: #999;
+}
+
+#quote {
+  /*position: absolute;*/
+  /*top: 20px;*/
+  display: inline-block;
+  width: 410px;
+  padding: 20px 0px 0px 0px;
+  font-family: 'Montserrat', sans-serif;
+  color: #999;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/*#board-border {
+  position: absolute;
+  margin: 10px auto 10px auto;
+  height: 520px;
+  width: 520px;
+  border: 1px solid #e3e3e3;
+}*/
+
+#tile-wrapper {
+  position: absolute;
+  left: 75px;
+  bottom: 55px;
+  margin-top: 40px;
+  height: 390px;
+  width: 410px;
+  /*padding: 20px;*/
+}
+
+.tile {
+  display: inline-block;
+  background-color: #e3e3e3;
+  height: 85px;
+  width: 85px;
+  border-radius: 7px;
+  margin: 7px;
+}
+
+#tileBack {
+  margin-top: 18px;
+  font-family: 'Montserrat', sans-serif;
+  color: #d0d0d0;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+}
