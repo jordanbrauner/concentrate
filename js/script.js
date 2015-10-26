@@ -3,39 +3,92 @@ $(document).ready(function() {
   // create tile divs
   var createTileDivs = function() {
     for (var i = 0; i < 16; i ++) {
-      $('#tile-wrapper').append("<div class='tile'></div>");
+      $('#tile-wrapper').append("<div class='tile-bottom'><div class='tile-top'></div></div>");
       // $('#tile-wrapper').append("<div class='tile' id=\""+i+"tile\"></div>");
     }
-    $('.tile').append("<p id='tileBack'>C</p>")
+    $('.tile-top').append("<p id='tile-back'>C</p>")
   }
   createTileDivs();
 
   // On click, reveal tile
+  // $('.tile-top').on('click', function() {
+  //   $(this).hide()
+  // });
 });
 
 var guesses = 4;
 $('#guesses').append(guesses);
 
-var deck = [
-    "red",
-    "red",
-    "blue",
-    "blue",
-    "yellow",
-    "yellow",
-    "green",
-    "green",
-    "aqua",
-    "aqua",
-    "slategray",
-    "slategray",
-    "lemonchiffon",
-    "lemonchiffon",
-    "rebeccapurple",
-    "rebeccapurple"
-];
 
-var usedTiles = [];
+/************************
+RANDOMIZING THE BOARD
+************************/
+
+// var deck = [
+//     "red",
+//     "red",
+//     "blue",
+//     "blue",
+//     "yellow",
+//     "yellow",
+//     "green",
+//     "green",
+//     "aqua",
+//     "aqua",
+//     "slategray",
+//     "slategray",
+//     "lemonchiffon",
+//     "lemonchiffon",
+//     "rebeccapurple",
+//     "rebeccapurple"
+// ];
+//
+// var usedTiles = [];
+
+
+
+/************************
+OLD CODE
+************************/
+
+// $(document).ready(function() {
+//
+//   // create tile divs
+//   var createTileDivs = function() {
+//     for (var i = 0; i < 16; i ++) {
+//       $('#tile-wrapper').append("<div class='tile'></div>");
+//       // $('#tile-wrapper').append("<div class='tile' id=\""+i+"tile\"></div>");
+//     }
+//     $('.tile').append("<p id='tileBack'>C</p>")
+//   }
+//   createTileDivs();
+//
+//   // On click, reveal tile
+// });
+//
+// var guesses = 4;
+// $('#guesses').append(guesses);
+//
+// var deck = [
+//     "red",
+//     "red",
+//     "blue",
+//     "blue",
+//     "yellow",
+//     "yellow",
+//     "green",
+//     "green",
+//     "aqua",
+//     "aqua",
+//     "slategray",
+//     "slategray",
+//     "lemonchiffon",
+//     "lemonchiffon",
+//     "rebeccapurple",
+//     "rebeccapurple"
+// ];
+//
+// var usedTiles = [];
 
 
 // for (var i = 0; usedTiles.length < 17; i++) {
@@ -47,9 +100,6 @@ var usedTiles = [];
 //   $(this).attr('background', 'yellow');
 // });
 
-/************************
-OLD CODE
-************************/
 
 // var storeColor = function(color) {
 //   $('#2tile').css("background-color", color);

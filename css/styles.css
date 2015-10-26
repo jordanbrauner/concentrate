@@ -22,13 +22,14 @@ body {
 
 #game-title {
   position: absolute;
-  top: 75px;
-  padding: 0px 0px 0px 100px;
+  top: 70px;
+  padding: 0px 0px 0px 108px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
+  font-size: 37px;
   font-weight: 700;
   color: #fff;
   letter-spacing: 3px;
+  text-shadow: 0px 5px 15px #d0d0d0;
 }
 
 #wrapper {
@@ -88,7 +89,7 @@ UI
   position: absolute;
   height: 30px;
   width: 250px;
-  padding: 28px 0px 0px 82px;
+  padding: 28px 0px 0px 85px;
 }
 
 #symbol {
@@ -133,7 +134,7 @@ TILES
 
 #tile-wrapper {
   position: absolute;
-  left: 75px;
+  left: 78px;
   bottom: 57px;
   margin-top: 40px;
   height: 390px;
@@ -141,25 +142,24 @@ TILES
   /*padding: 20px;*/
 }
 
-.tile {
+.tile-bottom {
   display: inline-block;
-  background-color: #e3e3e3;
+  background-color: yellow;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.tile {
+.tile-top {
   display: inline-block;
   background-color: #e3e3e3;
   height: 85px;
   width: 85px;
   border-radius: 5px;
-  margin: 7px;
 }
 
-.tile:hover {
+.tile-top:hover {
   background-color: #f3f3f3;
 }
 
@@ -167,7 +167,7 @@ TILES
   background-color: yellow;
 }*/
 
-#tileBack {
+#tile-back {
   margin-top: 18px;
   font-family: 'Montserrat', sans-serif;
   color: #d0d0d0;
