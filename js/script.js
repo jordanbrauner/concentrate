@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   var clicks = 0;
+  var matched = 0;
   var match1;
   var match2;
   var matchElement1;
@@ -9,6 +10,14 @@ $(document).ready(function() {
 
   var guesses = 4;
   $('#guesses').text(guesses);
+
+  var showBoard = function () {
+    $('.hide').toggleClass('hide');
+  }
+
+  var hideBoard = function () {
+    $('#tile-wrapper div').toggleClass('hide');
+  }
 
   var wrongMatch = function () {
     console.log("Sorry, try again!!");
@@ -24,7 +33,10 @@ $(document).ready(function() {
   }
 
   $('.hide').on('click', function() {
-    if (guesses !== 0) {
+    if (matched === 1) {
+      console.log('You Win');
+    }
+    else if ((guesses !== 0) && (matched !== 8)) {
       if (clicks === 0) {
         $(this).toggleClass('hide');
         matchElement1 = $(this);
@@ -38,13 +50,17 @@ $(document).ready(function() {
         if (match1 === match2) {
           console.log("It's a match!");
           clicks = 0;
+          matched += 1;
+          console.log("Matches: " + matched);
         }
         else {
-          setTimeout(wrongMatch, 1000);
+          setTimeout(wrongMatch, 700);
         }
       }
     }
   });
+  setTimeout(showBoard, 1000);
+  setTimeout(hideBoard, 3000);
 });
 
 
@@ -79,24 +95,6 @@ RANDOMIZING THE BOARD
 OLD CODE
 ************************/
 
-// $(document).ready(function() {
-//
-//   // create tile divs
-//   var createTileDivs = function() {
-//     for (var i = 0; i < 16; i ++) {
-//       $('#tile-wrapper').append("<div class='tile'></div>");
-//       // $('#tile-wrapper').append("<div class='tile' id=\""+i+"tile\"></div>");
-//     }
-//     $('.tile').append("<p id='tileBack'>C</p>")
-//   }
-//   createTileDivs();
-//
-//   // On click, reveal tile
-// });
-//
-// var guesses = 4;
-// $('#guesses').append(guesses);
-//
 // var deck = [
 //     "red",
 //     "red",
@@ -115,24 +113,13 @@ OLD CODE
 //     "rebeccapurple",
 //     "rebeccapurple"
 // ];
-//
-// var usedTiles = [];
 
+// var usedTiles = [];
 
 // for (var i = 0; usedTiles.length < 17; i++) {
 //   usedTiles.push(deck[i]);
 //   // $("\"#"+i+"tile\"").css("background-color", deck[i]);
 // }
-
-// $('#tile-yellow').on('click', function () {
-//   $(this).attr('background', 'yellow');
-// });
-
-
-// var storeColor = function(color) {
-//   $('#2tile').css("background-color", color);
-// }
-
 
 // random: function () {
 //     var random = Math.random();
