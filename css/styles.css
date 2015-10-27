@@ -15,7 +15,7 @@ GAMEBOARD
 
 body {
   background-image: url('../images/bg.jpg');
-  background-size: 90px 90px;
+  background-size: 100px 100px;
   background-repeat: repeat;
   /*background: #d0d0d0;*/
 }
@@ -29,7 +29,7 @@ body {
   font-weight: 700;
   color: #fff;
   letter-spacing: 3px;
-  text-shadow: 0px 5px 15px #d0d0d0;
+  text-shadow: 0px 5px 10px #b4b4b4;
 }
 
 #wrapper {
@@ -92,17 +92,37 @@ UI
   padding: 28px 0px 0px 85px;
 }
 
-#symbol {
+#symbol-1 {
   position: absolute;
+  left: 73px;
   background-color: slategray;
-  height: 30px;
-  width: 30px;
+  height: 27px;
+  width: 27px;
   border-radius: 50px;
+}
+
+#symbol-2 {
+  position: absolute;
+  left: 111px;
+  border: 2px solid slategray;
+  height: 24px;
+  width: 24px;
+  border-radius: 50px;
+}
+
+#symbol-3 {
+  position: absolute;
+  left: 151px;
+  background-color: slategray;
+  /*border: 2px solid slategray;*/
+  height: 27px;
+  width: 27px;
+  border-radius: 5px;
 }
 
 #guesses {
   position: absolute;
-  right: 90px;
+  right: 80px;
   top: 96px;
   font-family: 'Montserrat', sans-serif;
   font-size: 50px;
@@ -111,7 +131,7 @@ UI
 
 #guesses-left {
   position: absolute;
-  right: 90px;
+  right: 80px;
   top: 150px;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
@@ -127,22 +147,29 @@ UI
 }*/
 
 
-
 /*******************************
-TILES
+TILES - CLICKED
 *******************************/
 
-#tile-wrapper {
-  position: absolute;
-  left: 78px;
-  bottom: 57px;
-  margin-top: 40px;
-  height: 390px;
-  width: 410px;
-  /*padding: 20px;*/
+.red {
+  display: inline-block;
+  background-color: red;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
 }
 
-.tile-bottom {
+.orange {
+  display: inline-block;
+  background-color: orange;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.yellow {
   display: inline-block;
   background-color: yellow;
   height: 85px;
@@ -151,27 +178,92 @@ TILES
   margin: 7px;
 }
 
-.tile-top {
+.green {
+  display: inline-block;
+  background-color: green;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.slategray {
+  display: inline-block;
+  background-color: slategray;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.purple {
+  display: inline-block;
+  background-color: purple;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.lemonchiffon {
+  display: inline-block;
+  background-color: lemonchiffon;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.firebrick {
+  display: inline-block;
+  background-color: firebrick;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+
+
+/*******************************
+TILES
+*******************************/
+
+#tile-wrapper {
+  position: absolute;
+  left: 68px;
+  bottom: 57px;
+  margin-top: 42px;
+  height: 390px;
+  width: 410px;
+}
+
+.hide {
   display: inline-block;
   background-color: #e3e3e3;
   height: 85px;
   width: 85px;
   border-radius: 5px;
+  margin: 7px;
 }
 
-.tile-top:hover {
+.hide:hover {
   background-color: #f3f3f3;
 }
 
-/*.tile:active {
+/*.tile-bottom {
+  display: inline-block;
   background-color: yellow;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
 }*/
 
-#tile-back {
+/*#tile-back {
   margin-top: 18px;
   font-family: 'Montserrat', sans-serif;
   color: #d0d0d0;
   font-size: 40px;
   font-weight: 700;
   text-align: center;
-}
+}*/

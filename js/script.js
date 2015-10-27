@@ -1,23 +1,51 @@
 $(document).ready(function() {
 
-  // create tile divs
-  var createTileDivs = function() {
-    for (var i = 0; i < 16; i ++) {
-      $('#tile-wrapper').append("<div class='tile-bottom'><div class='tile-top'></div></div>");
-      // $('#tile-wrapper').append("<div class='tile' id=\""+i+"tile\"></div>");
+  var clicks = 0;
+  var match1;
+  var match2;
+  var matchElement1;
+  var matchElement2;
+  var wrong;
+
+  var guesses = 4;
+  $('#guesses').text(guesses);
+
+  var wrongMatch = function () {
+    console.log("Sorry, try again!!");
+    $(matchElement1).toggleClass('hide');
+    $(matchElement2).toggleClass('hide');
+    guesses -= 1;
+    $('#guesses').text(guesses);
+    clicks = 0;
+    console.log(guesses);
+    if (guesses === 0) {
+      console.log("game over!");
     }
-    $('.tile-top').append("<p id='tile-back'>C</p>")
   }
-  createTileDivs();
 
-  // On click, reveal tile
-  // $('.tile-top').on('click', function() {
-  //   $(this).hide()
-  // });
+  $('.hide').on('click', function() {
+    if (guesses !== 0) {
+      if (clicks === 0) {
+        $(this).toggleClass('hide');
+        matchElement1 = $(this);
+        match1 = $(this).attr('class');
+        clicks += 1;
+      }
+      else {
+        $(this).toggleClass('hide');
+        matchElement2 = $(this);
+        match2 = $(this).attr('class');
+        if (match1 === match2) {
+          console.log("It's a match!");
+          clicks = 0;
+        }
+        else {
+          setTimeout(wrongMatch, 1000);
+        }
+      }
+    }
+  });
 });
-
-var guesses = 4;
-$('#guesses').append(guesses);
 
 
 /************************
