@@ -20,16 +20,32 @@ body {
   /*background: #d0d0d0;*/
 }
 
-#game-title {
+.start {
   position: absolute;
   top: 70px;
-  padding: 0px 0px 0px 108px;
+  padding: 0px 0px 0px 72px;
   font-family: 'Montserrat', sans-serif;
   font-size: 37px;
   font-weight: 700;
-  color: #fff;
-  letter-spacing: 3px;
-  text-shadow: 0px 5px 10px #b4b4b4;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+}
+
+.game-title {
+  position: absolute;
+  top: 70px;
+  padding: 0px 0px 0px 72px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 37px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+}
+
+.game-title.start:hover {
+  color: #777;
 }
 
 #wrapper {
@@ -37,17 +53,15 @@ body {
   height: 750px;
   width: 550px;
   margin: 0 auto;
-  /*background: #d0d0d0;*/
 }
 
 #board {
   position: absolute;
   top: 150px;
   background-color: white;
-  height: 615px;
+  height: 630px;
   width: 550px;
   box-shadow: 0px 5px 15px #999;
-  /*margin: 0 auto;*/
 }
 
 
@@ -56,21 +70,129 @@ body {
 UI
 *******************************/
 
-#quote-wrapper {
-  margin: 20px 0px 20px 0px;
+/*******
+UI ABOVE THE TILES
+******/
+
+#lives {
+  position: absolute;
+  right: 78px;
+  top: 29px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  color: #6e6e6e;
 }
+
+#lives-left {
+  position: absolute;
+  right: 80px;
+  top: 83px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: #999;
+}
+
+#matched-wrapper {
+  position: absolute;
+  top: 49px;
+  height: 30px;
+  width: 250px;
+  padding: 28px 0px 0px 73px;
+}
+
+#match-icon-1 {
+  position: absolute;
+  left: 73px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-2 {
+  position: absolute;
+  left: 103px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-3 {
+  position: absolute;
+  left: 133px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-4 {
+  position: absolute;
+  left: 163px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-5 {
+  position: absolute;
+  left: 193px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-6 {
+  position: absolute;
+  left: 223px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-7 {
+  position: absolute;
+  left: 253px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-8 {
+  position: absolute;
+  left: 283px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#quote-wrapper {
+  position: absolute;
+  bottom: 28px;
+  margin: 20px 0px 0px 0px;
+}
+
+/*******
+UI BELOW THE TILES
+******/
 
 #drop-quote {
   float: left;
   display: inline-block;
-  margin: 13px 16px 0px 40px;
+  margin: 13px 12px 0px 39px;
   font-family: sans-serif;
   font-size: 55px;
   font-weight: 700;
   color: #999;
 }
 
-#quote {
+.quote {
   /*position: absolute;*/
   /*top: 20px;*/
   display: inline-block;
@@ -85,138 +207,84 @@ UI
   text-transform: uppercase;
 }
 
-#matched-wrapper {
-  position: absolute;
-  height: 30px;
-  width: 250px;
-  padding: 28px 0px 0px 85px;
+#quote-byline {
+  padding: 4px 0px 0px 0px;
+  font-size: 8px;
+  letter-spacing: 1px;
 }
 
-#symbol-1 {
-  position: absolute;
-  left: 73px;
-  background-color: slategray;
-  height: 27px;
-  width: 27px;
-  border-radius: 50px;
-}
-
-#symbol-2 {
-  position: absolute;
-  left: 111px;
-  border: 2px solid slategray;
-  height: 24px;
-  width: 24px;
-  border-radius: 50px;
-}
-
-#symbol-3 {
-  position: absolute;
-  left: 151px;
-  background-color: slategray;
-  /*border: 2px solid slategray;*/
-  height: 27px;
-  width: 27px;
-  border-radius: 5px;
-}
-
-#guesses {
-  position: absolute;
-  right: 80px;
-  top: 96px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
-  color: #6e6e6e;
-}
-
-#guesses-left {
-  position: absolute;
-  right: 80px;
-  top: 150px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  color: #999;
-}
-
-/*#board-border {
-  position: absolute;
-  margin: 10px auto 10px auto;
-  height: 520px;
-  width: 520px;
-  border: 1px solid #e3e3e3;
-}*/
 
 
 /*******************************
 TILES - CLICKED
 *******************************/
 
-.red {
+.color1 {
   display: inline-block;
-  background-color: red;
+  background-color: #ffcc01;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.orange {
+.color2 {
   display: inline-block;
-  background-color: orange;
+  background-color: #ffdd72;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.yellow {
+.color3 {
   display: inline-block;
-  background-color: yellow;
+  background-color: #f60ad9;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.green {
+.color4 {
   display: inline-block;
-  background-color: green;
+  background-color: #ff689b;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.slategray {
+.color5 {
   display: inline-block;
-  background-color: slategray;
+  background-color: #f0c4ff;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.purple {
+.color6 {
   display: inline-block;
-  background-color: purple;
+  background-color: #ff6600;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.lemonchiffon {
+.color7 {
   display: inline-block;
-  background-color: lemonchiffon;
+  background-color: #d9d9d9;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.firebrick {
+.color8 {
   display: inline-block;
-  background-color: firebrick;
+  background-color: #fee4c1;
   height: 85px;
   width: 85px;
   border-radius: 5px;
@@ -232,7 +300,7 @@ TILES
 #tile-wrapper {
   position: absolute;
   left: 68px;
-  bottom: 57px;
+  bottom: 130px;
   margin-top: 42px;
   height: 390px;
   width: 410px;

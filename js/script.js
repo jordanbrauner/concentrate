@@ -1,42 +1,52 @@
 $(document).ready(function() {
 
+  // declare variables
   var clicks = 0;
   var matched = 0;
   var match1;
   var match2;
   var matchElement1;
   var matchElement2;
+  var matchElementColor;
   var wrong;
+  var lives = 4;
+  $('#lives').text(lives);
 
-  var guesses = 4;
-  $('#guesses').text(guesses);
-
+  // shows all the colors briefly at the start of the game
   var showBoard = function () {
+    $('.start').toggleClass('start');
+    $('.game-title').text('CONCENTRATE!');
     $('.hide').toggleClass('hide');
   }
 
-  var hideBoard = function () {
-    $('#tile-wrapper div').toggleClass('hide');
-  }
-
+  // runs when an incorrect match is made
   var wrongMatch = function () {
-    console.log("Sorry, try again!!");
     $(matchElement1).toggleClass('hide');
     $(matchElement2).toggleClass('hide');
-    guesses -= 1;
-    $('#guesses').text(guesses);
+    lives -= 1;
+    $('#lives').text(lives);
     clicks = 0;
-    console.log(guesses);
-    if (guesses === 0) {
-      console.log("game over!");
+    console.log(lives);
+    $('.game-title').text('CONCENTRATE!');
+    if (lives === 0) {
+      $('.game-title').text('GAME OVER!');
+      $('.game-title').toggleClass('start');
     }
   }
 
-  $('.hide').on('click', function() {
-    if (matched === 1) {
+  // runs when a correct match is made
+  var correctMatch = function () {
+    $('.game-title').text('PICK ANOTHER!');
+  }
+
+  // starts the game
+  var startGame = function () {
+    $('#tile-wrapper div').toggleClass('hide')
+    $('.hide').on('click', function() {
+    if (matched === 5) {
       console.log('You Win');
     }
-    else if ((guesses !== 0) && (matched !== 8)) {
+    else if ((lives !== 0) && (matched !== 8)) {
       if (clicks === 0) {
         $(this).toggleClass('hide');
         matchElement1 = $(this);
@@ -48,19 +58,26 @@ $(document).ready(function() {
         matchElement2 = $(this);
         match2 = $(this).attr('class');
         if (match1 === match2) {
-          console.log("It's a match!");
+          $('.game-title').text('MATCHED!');
           clicks = 0;
           matched += 1;
-          console.log("Matches: " + matched);
+          matchElementColor = matchElement2.css('background-color');
+          $("#match-icon-"+matched).css('background-color', matchElementColor);
+          setTimeout(correctMatch, 1000);
         }
         else {
-          setTimeout(wrongMatch, 700);
+          $('.game-title').text('NOT A MATCH!');
+          setTimeout(wrongMatch, 1000);
         }
       }
     }
   });
-  setTimeout(showBoard, 1000);
-  setTimeout(hideBoard, 3000);
+  }
+  //shows the colors in the tiles then hides them
+  $('.game-title').on('click', function() {
+    setTimeout(showBoard, 300);
+    setTimeout(startGame, 2000);
+  });
 });
 
 
