@@ -5,6 +5,8 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!-- <audio id="matchSound" src="sfx/match.mp3"></audio>
+  <audio id="dingSound" src="sfx/ding.mp3"></audio> -->
 </head>
 
 <body>
@@ -13,15 +15,10 @@
       <h1 id="small-logo-1">CONCENTRATE!</h1>
       <h1 id="small-logo-2">C</h1>
     </div>
+    <img id="splash-image" src="images/splash.jpg">
     <div id="board">
-      <h1 class="game-title start">CLICK TO START!</h1>
+      <h1 class="game-title start"></h1>
       <div id="rule-2"></div>
-      <!-- <div id="start-screen">
-        <h1 id="game-logo-1">CONCENTRATE!</h1>
-        <h1 id="game-logo-2">C</h1>
-        <div id="rule-1"></div>
-        <h1 id="game-logo-3">BY JORDLAND GAMES</h1>
-      </div> -->
       <div id="matched-wrapper">
         <span id="match-icon-1"></span>
         <span id="match-icon-2"></span>
@@ -35,7 +32,7 @@
       <span id="lives"></span>
       <span id="lives-left">LIVES LEFT</span>
       <div id="tile-wrapper">
-        <div class="hide color1" onmousedown="sound.play()"></div>
+        <div class="hide color1"></div>
         <div class="hide color2"></div>
         <div class="hide color3"></div>
         <div class="hide color4"></div>

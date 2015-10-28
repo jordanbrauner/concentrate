@@ -14,6 +14,21 @@ CORE STYLES
 START SCREEN
 *******************************/
 
+#splash-image {
+  position: absolute;
+  top: 150px;
+  background-color: white;
+  height: 660px;
+  width: 550px;
+  z-index: 3;
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+}
+
+#splash-image:hover {
+  opacity: .7;
+}
+
 #start-screen {
   background-color: #fff;
   height: 630px;
