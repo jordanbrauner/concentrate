@@ -59,6 +59,9 @@ $(document).ready(function() {
   $('.start').on('click', function() {
     countdownNum = 0;
     lives = 4;
+    for (var i = 0; i < 8; i++) {
+      $("#match-icon-"+i).css('background-color', 'white');
+    }
     $('#lives').text(lives);
     setInterval(countdown, 1000);
   });
