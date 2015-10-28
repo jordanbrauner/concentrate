@@ -1,5 +1,5 @@
 /*******************************
-CORE STYLES
+NORMALIZE
 *******************************/
 
 * {
@@ -29,14 +29,14 @@ START SCREEN
   opacity: .7;
 }
 
-#start-screen {
+/*#start-screen {
   background-color: #fff;
   height: 630px;
   width: 550px;
   z-index: 2;
-}
+}*/
 
-#game-logo-1 {
+/*#game-logo-1 {
   position: absolute;
   top: 235px;
   left: 70px;
@@ -74,16 +74,16 @@ START SCREEN
   font-weight: 400;
   color: #777;
   letter-spacing: 3px;
-}
+}*/
 
-#rule-1 {
+/*#rule-1 {
   position: absolute;
   width: 300px;
   left: 130px;
   bottom: 143px;
   border-bottom: 1px solid #777;
   opacity: .7;
-}
+}*/
 
 /*#jordland-logo {
   position: absolute;
@@ -149,7 +149,7 @@ body {
   box-shadow: 0px 5px 15px #999;
 }
 
-#rule-2 {
+#rule {
   position: absolute;
   top: 65px;
   left: 72px;
@@ -163,9 +163,8 @@ body {
 UI
 *******************************/
 
-/*******
-LOGO ABOVE THE BOARD DURING PLAY
-******/
+
+/* LOGO ABOVE BOARD DURING PLAY */
 
 #small-logo-1 {
   position: absolute;
@@ -203,16 +202,7 @@ LOGO ABOVE THE BOARD DURING PLAY
   transform: rotate(360deg);
 }
 
-/*.logo:hover {
-  color: #777;
-  z-index: 3;
-}*/
-
-
-
-/*******
-UI ABOVE THE TILES
-******/
+/* UI ABOVE THE TILES */
 
 #lives {
   position: absolute;
@@ -312,9 +302,7 @@ UI ABOVE THE TILES
   border-radius: 50px;
 }
 
-/*******
-UI BELOW THE TILES
-******/
+/* UI BELOW THE TILES */
 
 #quote-wrapper {
   position: absolute;
@@ -465,20 +453,3 @@ TILES
 .hide:hover {
   background-color: #f3f3f3;
 }
-
-/*.tile-bottom {
-  display: inline-block;
-  background-color: yellow;
-  height: 85px;
-  width: 85px;
-  border-radius: 5px;
-}*/
-
-/*#tile-back {
-  margin-top: 18px;
-  font-family: 'Montserrat', sans-serif;
-  color: #d0d0d0;
-  font-size: 40px;
-  font-weight: 700;
-  text-align: center;
-}*/

@@ -1,12 +1,11 @@
 $(document).ready(function() {
 
   // Start splash screen
-  // $('#board').hide();
   $('#small-logo-1').hide();
   $('#small-logo-2').hide();
   $('.game-title').text("READY?");
 
-  // declare variables
+  // Declare variables
   var countdownNum = 3;
   var clicks = 0;
   var matched = 0;
@@ -17,16 +16,16 @@ $(document).ready(function() {
   var matchElementColor;
   var wrong;
   var lives = 4;
+  $('#lives').text(lives);
   // var dingSFX = $('#dingSound')[0];
   // var matchSFX = $('#matchSound')[0];
-  $('#lives').text(lives);
 
   // Sound effects
   // $(".hide").mouseenter(function() {
   //   dingSFX.play();
   // });
 
-  // Chooses a random quote
+  // Choose a random quote
   var randomQuote = function () {
     var random = Math.random();
     if (random < 0.20) {
@@ -47,7 +46,7 @@ $(document).ready(function() {
   }
   randomQuote();
 
-  // Begin game when user clicks on splash-image
+  // Begin game when user clicks on #splash-image
   $('#splash-image').on('click', function() {
     $('#splash-image').hide();
     $('#small-logo-1').show();
@@ -56,6 +55,7 @@ $(document).ready(function() {
   });
 
   // Resets game when clicking on game-title
+  // BUG: Semi-working. Need to reset match icons
   $('.start').on('click', function() {
     countdownNum = 0;
     lives = 4;
@@ -63,7 +63,7 @@ $(document).ready(function() {
     setInterval(countdown, 1000);
   });
 
-  // Countdown until show board and startgame are called
+  // Countdown until begin is called
   var countdown = function() {
     if (countdownNum > 0) {
       $('.game-title').text(countdownNum);
@@ -75,7 +75,7 @@ $(document).ready(function() {
     }
   }
 
-  // reveals board then starts game
+  // Reveal board then start game
   // BUG: countdown continues to loop as clearInterval is not working
   var begin = function() {
     if (countdownNum === 0) {
@@ -90,14 +90,14 @@ $(document).ready(function() {
     }
   }
 
-  // shows all the colors briefly at the start of the game
+  // Show all tile colors briefly at the start of the game
   var showBoard = function () {
     $('.start').toggleClass('start');
     $('.game-title').text('CONCENTRATE!');
     $('.hide').toggleClass('hide');
   }
 
-  // starts the game
+  // Start game
   var startGame = function () {
     clearInterval(countdown);
     $('.game-title').text('TAKE YOUR PICK!');
@@ -132,7 +132,7 @@ $(document).ready(function() {
   });
   }
 
-  // runs when a correct match is made
+  // Will run when a correct match is made
   var correctMatch = function () {
     if (matched < 8) {
       $('.game-title').text('PICK ANOTHER!');
@@ -142,7 +142,7 @@ $(document).ready(function() {
     }
   }
 
-  // runs when an incorrect match is made
+  // Will run when an incorrect match is made
   var wrongMatch = function () {
     $(matchElement1).toggleClass('hide');
     $(matchElement2).toggleClass('hide');
@@ -156,17 +156,14 @@ $(document).ready(function() {
       $('.game-title').toggleClass('start');
     }
   }
-
-  //shows the colors in the tiles then hides them
-  // $('.start').on('click', function() {
-  //   $('#splash-image').hide();
-  //   $('#small-logo-1').show();
-  //   $('#small-logo-2').show();
-  //   showBoard();
-  //   setTimeout(startGame, 1000);
-  // });
 });
 
+
+
+
+/************************
+OLD/UNUSED CODE
+************************/
 
 /************************
 RANDOMIZING THE BOARD
@@ -191,33 +188,6 @@ RANDOMIZING THE BOARD
 //     "rebeccapurple"
 // ];
 //
-// var usedTiles = [];
-
-
-
-/************************
-OLD CODE
-************************/
-
-// var deck = [
-//     "red",
-//     "red",
-//     "blue",
-//     "blue",
-//     "yellow",
-//     "yellow",
-//     "green",
-//     "green",
-//     "aqua",
-//     "aqua",
-//     "slategray",
-//     "slategray",
-//     "lemonchiffon",
-//     "lemonchiffon",
-//     "rebeccapurple",
-//     "rebeccapurple"
-// ];
-
 // var usedTiles = [];
 
 // for (var i = 0; usedTiles.length < 17; i++) {
