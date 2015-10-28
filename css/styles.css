@@ -9,6 +9,76 @@ CORE STYLES
 }
 
 
+
+/*******************************
+START SCREEN
+*******************************/
+
+#start-screen {
+  background-color: #fff;
+  height: 630px;
+  width: 550px;
+  z-index: 2;
+}
+
+#game-logo-1 {
+  position: absolute;
+  top: 235px;
+  left: 70px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+  z-index: 3;
+}
+
+#game-logo-1:hover {
+  color: #777;
+  z-index: 3;
+}
+
+#game-logo-2 {
+  position: absolute;
+  left: 110px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 430px;
+  font-weight: 700;
+  color: #777;
+  opacity: .2;
+  z-index: 3;
+}
+
+#game-logo-3 {
+  position: absolute;
+  top: 500px;
+  left: 190px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #777;
+  letter-spacing: 3px;
+}
+
+#rule-1 {
+  position: absolute;
+  width: 300px;
+  left: 130px;
+  bottom: 143px;
+  border-bottom: 1px solid #777;
+  opacity: .7;
+}
+
+/*#jordland-logo {
+  position: absolute;
+  left: 125px;
+  bottom: 70px;
+  height: 270px;
+  width: 270px;
+}*/
+
+
 /*******************************
 GAMEBOARD
 *******************************/
@@ -34,10 +104,10 @@ body {
 
 .game-title {
   position: absolute;
-  top: 70px;
+  top: 30px;
   padding: 0px 0px 0px 72px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 37px;
+  font-size: 24px;
   font-weight: 700;
   color: #999;
   letter-spacing: 1px;
@@ -59,11 +129,19 @@ body {
   position: absolute;
   top: 150px;
   background-color: white;
-  height: 630px;
+  height: 660px;
   width: 550px;
   box-shadow: 0px 5px 15px #999;
 }
 
+#rule-2 {
+  position: absolute;
+  top: 65px;
+  left: 72px;
+  width: 250px;
+  border-bottom: 1px solid #999;
+  opacity: .8;
+}
 
 
 /*******************************
@@ -77,7 +155,7 @@ UI ABOVE THE TILES
 #lives {
   position: absolute;
   right: 78px;
-  top: 29px;
+  top: 65px;
   font-family: 'Montserrat', sans-serif;
   font-size: 50px;
   color: #6e6e6e;
@@ -86,7 +164,7 @@ UI ABOVE THE TILES
 #lives-left {
   position: absolute;
   right: 80px;
-  top: 83px;
+  top: 119px;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   color: #999;
@@ -94,7 +172,7 @@ UI ABOVE THE TILES
 
 #matched-wrapper {
   position: absolute;
-  top: 49px;
+  top: 82px;
   height: 30px;
   width: 250px;
   padding: 28px 0px 0px 73px;
@@ -172,15 +250,15 @@ UI ABOVE THE TILES
   border-radius: 50px;
 }
 
+/*******
+UI BELOW THE TILES
+******/
+
 #quote-wrapper {
   position: absolute;
   bottom: 28px;
   margin: 20px 0px 0px 0px;
 }
-
-/*******
-UI BELOW THE TILES
-******/
 
 #drop-quote {
   float: left;

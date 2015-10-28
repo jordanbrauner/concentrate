@@ -10,6 +10,8 @@ $(document).ready(function() {
   var matchElementColor;
   var wrong;
   var lives = 4;
+  var sound = new Audio();
+  sound.src = "../images/sfx.mp3";
   $('#lives').text(lives);
 
   // shows all the colors briefly at the start of the game
@@ -27,9 +29,9 @@ $(document).ready(function() {
     $('#lives').text(lives);
     clicks = 0;
     console.log(lives);
-    $('.game-title').text('CONCENTRATE!');
+    $('.game-title').text('PICK ANOTHER!');
     if (lives === 0) {
-      $('.game-title').text('GAME OVER!');
+      $('.game-title').text('TRY AGAIN?');
       $('.game-title').toggleClass('start');
     }
   }
@@ -41,9 +43,10 @@ $(document).ready(function() {
 
   // starts the game
   var startGame = function () {
+    $('.game-title').text('TAKE YOUR PICK!');
     $('#tile-wrapper div').toggleClass('hide')
     $('.hide').on('click', function() {
-    if (matched === 5) {
+    if (matched === 8) {
       console.log('You Win');
     }
     else if ((lives !== 0) && (matched !== 8)) {
@@ -58,7 +61,7 @@ $(document).ready(function() {
         matchElement2 = $(this);
         match2 = $(this).attr('class');
         if (match1 === match2) {
-          $('.game-title').text('MATCHED!');
+          $('.game-title').text('IT\'S A MATCH!');
           clicks = 0;
           matched += 1;
           matchElementColor = matchElement2.css('background-color');
@@ -66,7 +69,7 @@ $(document).ready(function() {
           setTimeout(correctMatch, 1000);
         }
         else {
-          $('.game-title').text('NOT A MATCH!');
+          $('.game-title').text('NOPE!');
           setTimeout(wrongMatch, 1000);
         }
       }
@@ -74,9 +77,10 @@ $(document).ready(function() {
   });
   }
   //shows the colors in the tiles then hides them
-  $('.game-title').on('click', function() {
-    setTimeout(showBoard, 300);
-    setTimeout(startGame, 2000);
+  $('.start').on('click', function() {
+    // $('#start-screen').hide();
+    showBoard();
+    setTimeout(startGame, 4000);
   });
 });
 
