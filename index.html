@@ -9,19 +9,48 @@
 
 <body>
   <div id="wrapper">
-    <h1 id="game-title">CONCENTRATE!</h1>
     <div id="board">
+      <h1 class="game-title start">CLICK TO START!</h1>
+      <div id="rule-2"></div>
+      <!-- <div id="start-screen">
+        <h1 id="game-logo-1">CONCENTRATE!</h1>
+        <h1 id="game-logo-2">C</h1>
+        <div id="rule-1"></div>
+        <h1 id="game-logo-3">BY JORDLAND GAMES</h1>
+      </div> -->
+      <div id="matched-wrapper">
+        <span id="match-icon-1"></span>
+        <span id="match-icon-2"></span>
+        <span id="match-icon-3"></span>
+        <span id="match-icon-4"></span>
+        <span id="match-icon-5"></span>
+        <span id="match-icon-6"></span>
+        <span id="match-icon-7"></span>
+        <span id="match-icon-8"></span>
+      </div>
+      <span id="lives"></span>
+      <span id="lives-left">LIVES LEFT</span>
+      <div id="tile-wrapper">
+        <div class="hide color1" onmousedown="sound.play()"></div>
+        <div class="hide color2"></div>
+        <div class="hide color3"></div>
+        <div class="hide color4"></div>
+        <div class="hide color3"></div>
+        <div class="hide color5"></div>
+        <div class="hide color6"></div>
+        <div class="hide color5"></div>
+        <div class="hide color7"></div>
+        <div class="hide color4"></div>
+        <div class="hide color7"></div>
+        <div class="hide color1"></div>
+        <div class="hide color6"></div>
+        <div class="hide color2"></div>
+        <div class="hide color8"></div>
+        <div class="hide color8"></div>
+      </div>
       <div id="quote-wrapper">
         <span id="drop-quote">"</span>
-        <h3 id="quote">If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason."</h3>
-      </div>
-      <div id="matched-wrapper">
-        <span id="symbol"></span>
-        <span id="symbol"></span>
-      </div>
-      <span id="guesses"></span>
-      <span id="guesses-left">GUESSES LEFT</span>
-      <div id="tile-wrapper">
+        <h3 class="quote">If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason."</h3><span class="quote" id="quote-byline">&mdash;JACK HANDEY</span>
       </div>
     </div>
   </div>

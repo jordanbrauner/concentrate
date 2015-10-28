@@ -9,27 +9,113 @@ CORE STYLES
 }
 
 
+
+/*******************************
+START SCREEN
+*******************************/
+
+#start-screen {
+  background-color: #fff;
+  height: 630px;
+  width: 550px;
+  z-index: 2;
+}
+
+#game-logo-1 {
+  position: absolute;
+  top: 235px;
+  left: 70px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+  z-index: 3;
+}
+
+#game-logo-1:hover {
+  color: #777;
+  z-index: 3;
+}
+
+#game-logo-2 {
+  position: absolute;
+  left: 110px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 430px;
+  font-weight: 700;
+  color: #777;
+  opacity: .2;
+  z-index: 3;
+}
+
+#game-logo-3 {
+  position: absolute;
+  top: 500px;
+  left: 190px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #777;
+  letter-spacing: 3px;
+}
+
+#rule-1 {
+  position: absolute;
+  width: 300px;
+  left: 130px;
+  bottom: 143px;
+  border-bottom: 1px solid #777;
+  opacity: .7;
+}
+
+/*#jordland-logo {
+  position: absolute;
+  left: 125px;
+  bottom: 70px;
+  height: 270px;
+  width: 270px;
+}*/
+
+
 /*******************************
 GAMEBOARD
 *******************************/
 
 body {
   background-image: url('../images/bg.jpg');
-  background-size: 90px 90px;
+  background-size: 100px 100px;
   background-repeat: repeat;
   /*background: #d0d0d0;*/
 }
 
-#game-title {
+.start {
   position: absolute;
   top: 70px;
-  padding: 0px 0px 0px 108px;
+  padding: 0px 0px 0px 72px;
   font-family: 'Montserrat', sans-serif;
   font-size: 37px;
   font-weight: 700;
-  color: #fff;
-  letter-spacing: 3px;
-  text-shadow: 0px 5px 15px #d0d0d0;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+}
+
+.game-title {
+  position: absolute;
+  top: 30px;
+  padding: 0px 0px 0px 72px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+}
+
+.game-title.start:hover {
+  color: #777;
 }
 
 #wrapper {
@@ -37,40 +123,154 @@ body {
   height: 750px;
   width: 550px;
   margin: 0 auto;
-  /*background: #d0d0d0;*/
 }
 
 #board {
   position: absolute;
   top: 150px;
   background-color: white;
-  height: 615px;
+  height: 660px;
   width: 550px;
   box-shadow: 0px 5px 15px #999;
-  /*margin: 0 auto;*/
 }
 
+#rule-2 {
+  position: absolute;
+  top: 65px;
+  left: 72px;
+  width: 250px;
+  border-bottom: 1px solid #999;
+  opacity: .8;
+}
 
 
 /*******************************
 UI
 *******************************/
 
+/*******
+UI ABOVE THE TILES
+******/
+
+#lives {
+  position: absolute;
+  right: 78px;
+  top: 65px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  color: #6e6e6e;
+}
+
+#lives-left {
+  position: absolute;
+  right: 80px;
+  top: 119px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: #999;
+}
+
+#matched-wrapper {
+  position: absolute;
+  top: 82px;
+  height: 30px;
+  width: 250px;
+  padding: 28px 0px 0px 73px;
+}
+
+#match-icon-1 {
+  position: absolute;
+  left: 73px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-2 {
+  position: absolute;
+  left: 103px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-3 {
+  position: absolute;
+  left: 133px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-4 {
+  position: absolute;
+  left: 163px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-5 {
+  position: absolute;
+  left: 193px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-6 {
+  position: absolute;
+  left: 223px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-7 {
+  position: absolute;
+  left: 253px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+#match-icon-8 {
+  position: absolute;
+  left: 283px;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+/*******
+UI BELOW THE TILES
+******/
+
 #quote-wrapper {
-  margin: 20px 0px 20px 0px;
+  position: absolute;
+  bottom: 28px;
+  margin: 20px 0px 0px 0px;
 }
 
 #drop-quote {
   float: left;
   display: inline-block;
-  margin: 13px 16px 0px 40px;
+  margin: 13px 12px 0px 39px;
   font-family: sans-serif;
   font-size: 55px;
   font-weight: 700;
   color: #999;
 }
 
-#quote {
+.quote {
   /*position: absolute;*/
   /*top: 20px;*/
   display: inline-block;
@@ -85,46 +285,89 @@ UI
   text-transform: uppercase;
 }
 
-#matched-wrapper {
-  position: absolute;
-  height: 30px;
-  width: 250px;
-  padding: 28px 0px 0px 85px;
+#quote-byline {
+  padding: 4px 0px 0px 0px;
+  font-size: 8px;
+  letter-spacing: 1px;
 }
 
-#symbol {
-  position: absolute;
-  background-color: slategray;
-  height: 30px;
-  width: 30px;
-  border-radius: 50px;
+
+
+/*******************************
+TILES - CLICKED
+*******************************/
+
+.color1 {
+  display: inline-block;
+  background-color: #ffcc01;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
 }
 
-#guesses {
-  position: absolute;
-  right: 90px;
-  top: 96px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
-  color: #6e6e6e;
+.color2 {
+  display: inline-block;
+  background-color: #ffdd72;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
 }
 
-#guesses-left {
-  position: absolute;
-  right: 90px;
-  top: 150px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  color: #999;
+.color3 {
+  display: inline-block;
+  background-color: #f60ad9;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
 }
 
-/*#board-border {
-  position: absolute;
-  margin: 10px auto 10px auto;
-  height: 520px;
-  width: 520px;
-  border: 1px solid #e3e3e3;
-}*/
+.color4 {
+  display: inline-block;
+  background-color: #ff689b;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.color5 {
+  display: inline-block;
+  background-color: #f0c4ff;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.color6 {
+  display: inline-block;
+  background-color: #ff6600;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.color7 {
+  display: inline-block;
+  background-color: #d9d9d9;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.color8 {
+  display: inline-block;
+  background-color: #fee4c1;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
 
 
 
@@ -134,44 +377,39 @@ TILES
 
 #tile-wrapper {
   position: absolute;
-  left: 78px;
-  bottom: 57px;
-  margin-top: 40px;
+  left: 68px;
+  bottom: 130px;
+  margin-top: 42px;
   height: 390px;
   width: 410px;
-  /*padding: 20px;*/
 }
 
-.tile-bottom {
+.hide {
   display: inline-block;
-  background-color: yellow;
+  background-color: #e3e3e3;
   height: 85px;
   width: 85px;
   border-radius: 5px;
   margin: 7px;
 }
 
-.tile-top {
-  display: inline-block;
-  background-color: #e3e3e3;
-  height: 85px;
-  width: 85px;
-  border-radius: 5px;
-}
-
-.tile-top:hover {
+.hide:hover {
   background-color: #f3f3f3;
 }
 
-/*.tile:active {
+/*.tile-bottom {
+  display: inline-block;
   background-color: yellow;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
 }*/
 
-#tile-back {
+/*#tile-back {
   margin-top: 18px;
   font-family: 'Montserrat', sans-serif;
   color: #d0d0d0;
   font-size: 40px;
   font-weight: 700;
   text-align: center;
-}
+}*/
