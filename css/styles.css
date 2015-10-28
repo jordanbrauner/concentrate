@@ -149,6 +149,53 @@ UI
 *******************************/
 
 /*******
+LOGO ABOVE THE BOARD DURING PLAY
+******/
+
+#small-logo-1 {
+  position: absolute;
+  top: 65px;
+  left: 180px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+  z-index: 3;
+}
+
+#small-logo-2 {
+  position: absolute;
+  top: 0px;
+  left: 220px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 125px;
+  font-weight: 700;
+  color: #999;
+  opacity: .2;
+  z-index: 2;
+  overflow: hidden;
+  transition-duration: .6s;
+  transition-property: transform;
+}
+
+#small-logo-1:hover {
+  color: #777;
+}
+
+#small-logo-2:hover {
+  transform: rotate(360deg);
+}
+
+/*.logo:hover {
+  color: #777;
+  z-index: 3;
+}*/
+
+
+
+/*******
 UI ABOVE THE TILES
 ******/
 
@@ -286,9 +333,16 @@ UI BELOW THE TILES
 }
 
 #quote-byline {
+  display: inline-block;
+  width: 410px;
   padding: 4px 0px 0px 0px;
+  font-family: 'Montserrat', sans-serif;
   font-size: 8px;
+  color: #999;
+  font-weight: 400;
   letter-spacing: 1px;
+  line-height: 15px;
+  text-transform: uppercase;
 }
 
 
@@ -353,7 +407,7 @@ TILES - CLICKED
 
 .color7 {
   display: inline-block;
-  background-color: #d9d9d9;
+  background-color: #ecc5c5;
   height: 85px;
   width: 85px;
   border-radius: 5px;

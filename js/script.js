@@ -10,9 +10,31 @@ $(document).ready(function() {
   var matchElementColor;
   var wrong;
   var lives = 4;
-  var sound = new Audio();
-  sound.src = "../images/sfx.mp3";
+  // var sound = new Audio();
+  // sound.src = "../images/sfx.mp3";
   $('#lives').text(lives);
+
+  // RNG for randomThought
+  var randomThought = function () {
+    var random = Math.random();
+    if (random < 0.20) {
+      $('.quote').text("Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"");
+    }
+    else if (random < 0.40) {
+      $('.quote').text("If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"");
+    }
+    else if (random < 0.60) {
+      $('.quote').text("When you go in for a job interview, I think a good thing to ask is if they ever press charges\"");
+    }
+    else if (random < 0.80) {
+      $('.quote').text("If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"");
+    }
+    else {
+      $('.quote').text("Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\"");
+    }
+  }
+
+  randomThought();
 
   // shows all the colors briefly at the start of the game
   var showBoard = function () {
@@ -80,7 +102,7 @@ $(document).ready(function() {
   $('.start').on('click', function() {
     // $('#start-screen').hide();
     showBoard();
-    setTimeout(startGame, 1000);
+    setTimeout(startGame, 3000);
   });
 });
 
