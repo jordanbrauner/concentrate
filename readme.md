@@ -1,3 +1,8 @@
+Project hostead at:
+http://jordanbrauner.github.io/project-1
+
+
+
 User Story #1: As a user I should be able to reset the game if I'm having a bad run so I can save time.
 
 User Story #2: As a user I should be able to see how many chances I have before the game ends so I can play effectively.

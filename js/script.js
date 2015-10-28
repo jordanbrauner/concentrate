@@ -80,7 +80,7 @@ $(document).ready(function() {
   $('.start').on('click', function() {
     // $('#start-screen').hide();
     showBoard();
-    setTimeout(startGame, 4000);
+    setTimeout(startGame, 1000);
   });
 });
 
