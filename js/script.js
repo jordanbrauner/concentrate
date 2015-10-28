@@ -83,7 +83,7 @@ $(document).ready(function() {
   var begin = function() {
     if (countdownNum === 0) {
       clearInterval(countdown);
-      $('.game-title').text("CONCENTRATE!");
+      $('.game-title').text("MEMORIZE!");
       showBoard();
       setTimeout(startGame, 3000);
       // console.log('running countdown else');
@@ -96,7 +96,7 @@ $(document).ready(function() {
   // Show all tile colors briefly at the start of the game
   var showBoard = function () {
     $('.start').toggleClass('start');
-    $('.game-title').text('CONCENTRATE!');
+    $('.game-title').text('MEMORIZE!');
     $('.hide').toggleClass('hide');
   }
 
