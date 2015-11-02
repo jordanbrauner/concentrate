@@ -10,6 +10,8 @@ $(document).ready(function() {
   var countdownNum = 3;
   var clicks = 0;
   var matched = 0;
+  // AM: This is a matter of preference, but one way to save space when initializing variable w/o values is to put them all on one line like so...
+  // AM: var match1, match2, matchElement1, matchElement2; (and so on...)
   var match1;
   var match2;
   var matchElement1;
@@ -17,6 +19,8 @@ $(document).ready(function() {
   var matchElementColor;
   var wrong;
   var lives = 4;
+  // AM: Would suggest removing commented-out code from your master branch before submitting your projects (both in-class and after!).
+  // AM: If you want to preserve commented-out code, create a new branch where you can save it all.
   // var dingSFX = $('#dingSound')[0];
   // var matchSFX = $('#matchSound')[0];
   $('#lives').text(lives);
@@ -27,6 +31,7 @@ $(document).ready(function() {
   // });
 
   // Chooses a random quote
+  // AM: Love this!
   var randomQuote = function () {
     var random = Math.random();
     if (random < 0.20) {
@@ -64,6 +69,7 @@ $(document).ready(function() {
   });
 
   // Countdown until show board and startgame are called
+  // AM: Love this feature of your game, and cleverly implemented!
   var countdown = function() {
     if (countdownNum > 0) {
       $('.game-title').text(countdownNum);
@@ -86,11 +92,14 @@ $(document).ready(function() {
       // console.log('running countdown else');
     }
     else {
+      // AM: I wonder if this is what's causing countdown to run continuously...
+      // AM: Will revisit this and see if I can diagnose the aforementioned bug.
       countdown();
     }
   }
 
   // shows all the colors briefly at the start of the game
+  // AM: Another very cool feature!
   var showBoard = function () {
     $('.start').toggleClass('start');
     $('.game-title').text('CONCENTRATE!');
@@ -111,6 +120,7 @@ $(document).ready(function() {
         clicks += 1;
       }
       else {
+        // AM: Starting to notice from reused code. Perhaps you would benefit from encapsulating this in a function?
         $(this).toggleClass('hide');
         matchElement2 = $(this);
         match2 = $(this).attr('class');
@@ -167,7 +177,8 @@ $(document).ready(function() {
   // });
 });
 
-
+// AM: Let me know if you'd like to talk further about randomizing the board.
+// AM: Based on our conversation about shuffling in JS, it seemed like you were on the right track!
 /************************
 RANDOMIZING THE BOARD
 ************************/

@@ -1,3 +1,5 @@
+// AM: Kudos for putting time into an informative readme! Something that I always find super helpful is installation instructions. It'll come in handy for future, more complex projects.
+
 // READ ME
 
 Project hosted at:
