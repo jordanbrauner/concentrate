@@ -9,7 +9,7 @@ CORE STYLES
 }
 
 
-
+/* AM: Thumbs up sectioning out your stylesheet. Something else to consider since this document is long is to create multiple stylesheets. */
 /*******************************
 START SCREEN
 *******************************/
@@ -365,6 +365,9 @@ UI BELOW THE TILES
 /*******************************
 TILES - CLICKED
 *******************************/
+
+/* AM: All your .color classes share a lot of properties (e.g., same height and width). */
+/* AM: You can shorten your code by creating one class that applies these shared properties to each tile */
 
 .color1 {
   display: inline-block;
