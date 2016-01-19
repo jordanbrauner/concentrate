@@ -10,7 +10,6 @@ My approach to the game uses divs as tiles and matches each tile against the bac
 * Animations such as the tiles flipping when clicked
 
 **User Stories**:
-
 1. As a user I should be able to reset the game if I'm having a bad run so I can save time.
 2. As a user I should be able to see how many chances I have before the game ends so I can play effectively.
 3. As a user I should be able to adust the game's difficulty to accommodate my skill level.
