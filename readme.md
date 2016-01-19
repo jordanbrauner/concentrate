@@ -1,9 +1,9 @@
-# ABOUT CONCENTRATE!
+# ABOUT
 
-Approach taken:
+## Approach taken:
 My approach to the game uses divs as tiles and matches each tile against the background color of the other clicked tile. In order to hide the color, each tile has two class names. A generic one called "hide" and another for the tile's color. When a div is clicked, the hide class is toggled off, revealing the color of the tile.
 
-On the backlog:
+## On the backlog:
 • Randomized tiles
 • Difficulty setting that increases the number of tiles
 • Leaderboards
@@ -11,7 +11,7 @@ On the backlog:
 
 
 
-// USER STORIES
+## USER STORIES
 
 User Story #1: As a user I should be able to reset the game if I'm having a bad run so I can save time.
 
