@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Concentration</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/start-screen.css">
+  <link rel="stylesheet" href="css/game-board.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <!-- <audio id="matchSound" src="sfx/match.mp3"></audio>
-  <audio id="dingSound" src="sfx/ding.mp3"></audio> -->
 </head>
-
 <body>
-  <div id="wrapper">
+
+  <header>
     <div class="logo">
       <h1 id="small-logo-1">CONCENTRATE!</h1>
       <h1 id="small-logo-2">C</h1>
+  </header>
+
+  <section id="board-wrapper">
     </div>
     <img id="splash-image" src="images/splash.jpg">
     <div id="board">
@@ -54,7 +57,13 @@
         <h3 class="quote"></h3><span id="quote-byline">&mdash;JACK HANDEY</span>
       </div>
     </div>
-  </div>
+  </section>
+
+  <footer>
+    <p>Developed by <a href="https://jordanbrauner.github.io">Jordan Brauner</a>  |  <a href="https://github.com/jordanbrauner/concentrate">GitHub.</a></p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

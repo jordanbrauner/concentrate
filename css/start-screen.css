@@ -1,0 +1,82 @@
+/*******************************
+START SCREEN
+*******************************/
+
+#splash-image {
+  position: absolute;
+  top: 150px;
+  background-color: white;
+  height: 660px;
+  width: 550px;
+  z-index: 3;
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+}
+
+#splash-image:hover {
+  opacity: .7;
+}
+
+#start-screen {
+  background-color: #fff;
+  height: 630px;
+  width: 550px;
+  z-index: 2;
+}
+
+#game-logo-1 {
+  position: absolute;
+  top: 235px;
+  left: 70px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+  z-index: 3;
+}
+
+#game-logo-1:hover {
+  color: #777;
+  z-index: 3;
+}
+
+#game-logo-2 {
+  position: absolute;
+  left: 110px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 430px;
+  font-weight: 700;
+  color: #777;
+  opacity: .2;
+  z-index: 3;
+}
+
+#game-logo-3 {
+  position: absolute;
+  top: 500px;
+  left: 190px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #777;
+  letter-spacing: 3px;
+}
+
+#rule-1 {
+  position: absolute;
+  width: 300px;
+  left: 130px;
+  bottom: 143px;
+  border-bottom: 1px solid #777;
+  opacity: .7;
+}
+
+/*#jordland-logo {
+  position: absolute;
+  left: 125px;
+  bottom: 70px;
+  height: 270px;
+  width: 270px;
+}*/

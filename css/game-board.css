@@ -1,0 +1,228 @@
+/*******************************
+GAMEBOARD
+*******************************/
+
+.start, .game-title {
+  position: absolute;
+  padding: 0px 0px 0px 72px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+  opacity: .8;
+}
+
+.start {
+  top: 70px;
+  font-size: 37px;
+}
+
+.game-title {
+  top: 30px;
+  font-size: 24px;
+}
+
+.game-title.start:hover {
+  color: #777;
+}
+
+#board {
+  position: absolute;
+  top: 150px;
+  background-color: white;
+  height: 660px;
+  width: 550px;
+  box-shadow: 0px 5px 20px 7px #444;
+}
+
+#rule-2 {
+  position: absolute;
+  top: 65px;
+  left: 72px;
+  width: 250px;
+  border-bottom: 1px solid #999;
+  opacity: .8;
+}
+
+/*******************************
+USER INTERFACE
+*******************************/
+
+/* ABOVE THE TILES */
+
+#lives, #lives-left {
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#lives {
+  right: 78px;
+  top: 65px;
+  font-size: 50px;
+  color: #6E6E6E;
+}
+
+#lives-left {
+  right: 80px;
+  top: 119px;
+  font-size: 10px;
+  color: #999;
+}
+
+#matched-wrapper {
+  position: absolute;
+  top: 82px;
+  height: 30px;
+  width: 250px;
+  padding: 28px 0px 0px 73px;
+}
+
+#matched-wrapper span {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  position: absolute;
+}
+
+#match-icon-1 {
+  left: 73px;
+}
+
+#match-icon-2 {
+  left: 103px;
+}
+
+#match-icon-3 {
+  left: 133px;
+}
+
+#match-icon-4 {
+  left: 163px;
+}
+
+#match-icon-5 {
+  left: 193px;
+}
+
+#match-icon-6 {
+  left: 223px;
+}
+
+#match-icon-7 {
+  left: 253px;
+}
+
+#match-icon-8 {
+  left: 283px;
+}
+
+/* BELOW THE TILES */
+
+#quote-wrapper {
+  position: absolute;
+  bottom: 28px;
+  margin: 20px 0px 0px 0px;
+}
+
+#drop-quote {
+  float: left;
+  display: inline-block;
+  margin: 13px 12px 0px 39px;
+  font-family: sans-serif;
+  font-size: 55px;
+  font-weight: 700;
+  color: #999;
+}
+
+.quote, #quote-byline {
+  display: inline-block;
+  width: 410px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #999;
+  line-height: 15px;
+  text-transform: uppercase;
+}
+
+.quote {
+  padding: 20px 0px 0px 0px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+#quote-byline {
+  padding: 4px 0px 0px 0px;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+/*******************************
+TILES - CLICKED
+*******************************/
+
+#tile-wrapper div {
+  display: inline-block;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.color1 {
+  background-color: #ffcc01;
+}
+
+.color2 {
+  background-color: #ffdd72;
+}
+
+.color3 {
+  background-color: #f60ad9;
+}
+
+.color4 {
+  background-color: #ff689b;
+}
+
+.color5 {
+  background-color: #f0c4ff;
+}
+
+.color6 {
+  background-color: #ff6600;
+}
+
+.color7 {
+  background-color: #ecc5c5;
+}
+
+.color8 {
+  background-color: #fee4c1;
+}
+
+/*******************************
+TILES
+*******************************/
+
+#tile-wrapper {
+  position: absolute;
+  left: 68px;
+  bottom: 130px;
+  margin-top: 42px;
+  height: 390px;
+  width: 410px;
+}
+
+.hide {
+  display: inline-block;
+  background-color: #cbcbcb;
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+.hide:hover {
+  background-color: #f3f3f3;
+}
