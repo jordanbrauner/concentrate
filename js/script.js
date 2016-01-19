@@ -75,7 +75,7 @@ $(document).ready(function() {
       clearInterval(countdown);
       $('.game-title').text("CONCENTRATE!");
       showBoard();
-      setTimeout(startGame, 1000);
+      setTimeout(startGame, 3000);
       // console.log('running countdown else');
     }
     else {
