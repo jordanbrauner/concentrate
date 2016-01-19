@@ -17,14 +17,7 @@ $(document).ready(function() {
   var matchElementColor;
   var wrong;
   var lives = 4;
-  // var dingSFX = $('#dingSound')[0];
-  // var matchSFX = $('#matchSound')[0];
   $('#lives').text(lives);
-
-  // Sound effects
-  // $(".hide").mouseenter(function() {
-  //   dingSFX.play();
-  // });
 
   // Chooses a random quote
   var randomQuote = function () {
@@ -44,7 +37,7 @@ $(document).ready(function() {
     else {
       $('.quote').text("Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\"");
     }
-  }
+  };
   randomQuote();
 
   // Begin game when user clicks on splash-image
@@ -73,7 +66,7 @@ $(document).ready(function() {
       begin();
       countdownNum -=1;
     }
-  }
+  };
 
   // reveals board then starts game
   // BUG: countdown continues to loop as clearInterval is not working
@@ -88,20 +81,20 @@ $(document).ready(function() {
     else {
       countdown();
     }
-  }
+  };
 
   // shows all the colors briefly at the start of the game
   var showBoard = function () {
     $('.start').toggleClass('start');
     $('.game-title').text('CONCENTRATE!');
     $('.hide').toggleClass('hide');
-  }
+  };
 
   // starts the game
   var startGame = function () {
     clearInterval(countdown);
     $('.game-title').text('TAKE YOUR PICK!');
-    $('#tile-wrapper div').toggleClass('hide')
+    $('#tile-wrapper div').toggleClass('hide');
     $('.hide').on('click', function() {
     if ((lives !== 0) && (matched !== 8)) {
       if (clicks === 0) {
@@ -130,7 +123,7 @@ $(document).ready(function() {
       }
     }
   });
-  }
+  };
 
   // runs when a correct match is made
   var correctMatch = function () {
@@ -140,7 +133,7 @@ $(document).ready(function() {
     else {
       $('.game-title').text('CONGRATULATIONS!');
     }
-  }
+  };
 
   // runs when an incorrect match is made
   var wrongMatch = function () {
@@ -155,7 +148,7 @@ $(document).ready(function() {
       $('.game-title').text('TRY AGAIN?');
       $('.game-title').toggleClass('start');
     }
-  }
+  };
 
   //shows the colors in the tiles then hides them
   // $('.start').on('click', function() {
