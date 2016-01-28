@@ -1,44 +1,66 @@
 $(document).ready(function() {
 
-  // Start splash screen
-  // $('#board').hide();
-  $('#small-logo-1').hide();
-  $('#small-logo-2').hide();
-  $('.game-title').text("READY?");
-
-  // declare variables
+  // Declare variables
   var countdownNum = 3;
   var clicks = 0;
   var matched = 0;
-  var match1;
-  var match2;
-  var matchElement1;
-  var matchElement2;
-  var matchElementColor;
+  var match1, match2;
+  var matchElement1, matchElement2, matchElementColor;
   var wrong;
   var lives = 4;
   $('#lives').text(lives);
 
+  // Instantiate arrays
+  var quotes = ["Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"", "If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"", "When you go in for a job interview, I think a good thing to ask is if they ever press charges\"", "If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"", "Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\""];
+  var deck = ["color1", "color1", "color2", "color2", "color3", "color3", "color4", "color4", "color5", "color5", "color6", "color6", "color7", "color7", "color8", "color8"];
+  var shuffled = [];
+
   // Chooses a random quote
-  var randomQuote = function () {
-    var random = Math.random();
-    if (random < 0.20) {
-      $('.quote').text("Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"");
-    }
-    else if (random < 0.40) {
-      $('.quote').text("If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"");
-    }
-    else if (random < 0.60) {
-      $('.quote').text("When you go in for a job interview, I think a good thing to ask is if they ever press charges\"");
-    }
-    else if (random < 0.80) {
-      $('.quote').text("If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"");
-    }
-    else {
-      $('.quote').text("Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\"");
+  var randomQuote = function(array) {
+    var i = Math.floor(Math.random() * array.length);
+    $(".quote").text(array[i]);
+  };
+
+  // All methods for randomizing tiles on board
+  var tileFunctions = {
+    randomizeDeck: function(deck, shuffled) {
+      var i = 0;
+      var stop = deck.length;
+      while (i < stop) {
+        var aL = deck.length;
+        var r = Math.floor(Math.random() * stop);
+        if (deck[r] != "used") {
+          shuffled.push(deck[r]);
+          deck.splice(r, 1, "used");
+          i++;
+        }
+      }
+      console.log("deck: " + deck);
+      console.log("shuffled: " + shuffled);
+    },
+
+    resetDecks: function(shuffled, deck) {
+      tileFunctions.randomizeDeck(shuffled, deck);
+    },
+
+    fillBoard: function(shuffled) {
+      var i = 0;
+      var stop = shuffled.length;
+      $("#tile-wrapper").children().each(function(index, element) {
+          $(element).addClass(shuffled[i]);
+          console.log(element);
+          if (i === stop) {
+            i = 0;
+          }
+          i++;
+        });
     }
   };
-  randomQuote();
+
+  // Start splash screen
+  $('#small-logo-1').hide();
+  $('#small-logo-2').hide();
+  $('.game-title').text("READY?");
 
   // Begin game when user clicks on splash-image
   $('#splash-image').on('click', function() {
@@ -46,6 +68,15 @@ $(document).ready(function() {
     $('#small-logo-1').show();
     $('#small-logo-2').show();
     setInterval(countdown, 1000);
+    console.log("calling randomQuote");
+    randomQuote(quotes);
+    // Randomize deck
+    console.log("calling randomizeDeck");
+    tileFunctions.randomizeDeck(deck, shuffled);
+    // Fill board
+    console.log("calling fillBoard. Here is shuffled: " + shuffled);
+    tileFunctions.fillBoard(shuffled);
+    // NOTE Turn off event listener?
   });
 
   // Resets game when clicking on game-title
@@ -150,102 +181,5 @@ $(document).ready(function() {
     }
   };
 
-  //shows the colors in the tiles then hides them
-  // $('.start').on('click', function() {
-  //   $('#splash-image').hide();
-  //   $('#small-logo-1').show();
-  //   $('#small-logo-2').show();
-  //   showBoard();
-  //   setTimeout(startGame, 1000);
-  // });
+
 });
-
-
-/************************
-RANDOMIZING THE BOARD
-************************/
-
-// var deck = [
-//     "red",
-//     "red",
-//     "blue",
-//     "blue",
-//     "yellow",
-//     "yellow",
-//     "green",
-//     "green",
-//     "aqua",
-//     "aqua",
-//     "slategray",
-//     "slategray",
-//     "lemonchiffon",
-//     "lemonchiffon",
-//     "rebeccapurple",
-//     "rebeccapurple"
-// ];
-//
-// var usedTiles = [];
-
-
-
-/************************
-OLD CODE
-************************/
-
-// var deck = [
-//     "red",
-//     "red",
-//     "blue",
-//     "blue",
-//     "yellow",
-//     "yellow",
-//     "green",
-//     "green",
-//     "aqua",
-//     "aqua",
-//     "slategray",
-//     "slategray",
-//     "lemonchiffon",
-//     "lemonchiffon",
-//     "rebeccapurple",
-//     "rebeccapurple"
-// ];
-
-// var usedTiles = [];
-
-// for (var i = 0; usedTiles.length < 17; i++) {
-//   usedTiles.push(deck[i]);
-//   // $("\"#"+i+"tile\"").css("background-color", deck[i]);
-// }
-
-// random: function () {
-//     var random = Math.random();
-//     for (var i = 0; i < 16; i++) {
-//       var ranNum = 0;
-//       var rng = function () {
-//         if (random < 0.12) {
-//             var ranNum = this.deck[0];
-//         }
-//         else if (random < 0.24) {
-//             var ranNum = this.deck[1];
-//         }
-//         else if (random < 0.36) {
-//             var ranNum = this.deck[2];
-//         }
-//         else if (random < 0.48) {
-//             var ranNum = this.deck[3];
-//         }
-//         else if (random < 0.60) {
-//             var ranNum = this.deck[4];
-//         }
-//         else if (random < 0.72) {
-//             var ranNum = this.deck[5];
-//         }
-//         else if (random < 0.84) {
-//             var ranNum = this.deck[6];
-//         }
-//         else {
-//             var ranNum = this.deck[7];
-//         }
-//       }
-//     }
