@@ -29,16 +29,16 @@ HEADER
 *******************************/
 
 header {
+  width: 100%;
   margin-top: .5em;
   margin-bottom: -2em;
 }
 
 .logo {
-  width: 20%;
+  width: 10em;
   height: 1.5em;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 #small-logo-1, #small-logo-2 {
@@ -50,15 +50,13 @@ header {
 
 #small-logo-1 {
   top: 3.215em;
-  left: 0em;
   font-size: 20px;
   letter-spacing: 1px;
   opacity: 1;
 }
 
 #small-logo-2 {
-  top: .5em;
-  left: -1.05em;
+  top: -.2em;
   font-size: 125px;
   opacity: .2;
   transition-duration: .6s;
