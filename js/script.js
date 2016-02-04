@@ -7,7 +7,7 @@ $(document).ready(function() {
   var match1, match2;
   var matchElement1, matchElement2, matchElementColor;
   var wrong;
-  var lives = 4;
+  var lives = 5;
   $('#lives').text(lives);
 
   // Instantiate arrays
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
   // Begin game when user clicks on splash-image
   $('#splash-image').on('click', function() {
-    $('#splash-image').hide();
+    $('#splash-image').css("opacity", "0");
     $('#small-logo-1').show();
     $('#small-logo-2').show();
     setInterval(countdown, 1000);
@@ -95,6 +95,7 @@ $(document).ready(function() {
     }
     else if (countdownNum === 0) {
       begin();
+      $('#splash-image').hide();
       countdownNum -=1;
     }
   };
@@ -124,7 +125,7 @@ $(document).ready(function() {
   // starts the game
   var startGame = function () {
     clearInterval(countdown);
-    $('.game-title').text('TAKE YOUR PICK!');
+    $('.game-title').text('FIND A MATCH!');
     $('#tile-wrapper div').toggleClass('hide');
     $('.hide').on('click', function() {
     if ((lives !== 0) && (matched !== 8)) {
