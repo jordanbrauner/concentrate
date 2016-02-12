@@ -7,7 +7,7 @@ $(document).ready(function() {
   var match1, match2;
   var matchElement1, matchElement2, matchElementColor;
   var wrong;
-  var lives = 5;
+  var lives = 1;
   var intCountdownRun;
 
   // Instantiate arrays
@@ -58,7 +58,6 @@ $(document).ready(function() {
   };
 
   // Set game board UI
-  $('#rule-2').css('opacity', '1');
   $('.game-title').css('opacity', '1');
   $("#quote-wrapper").css('opacity', '0');
   $("#lives").css('opacity', '0');
@@ -88,7 +87,7 @@ $(document).ready(function() {
     console.log("resetGame function called");
     // set variables
     matched = 0;
-    lives = 5;
+    lives = 1;
     countdownNum = 3;
     clicks = 0;
     match1 = undefined;
@@ -136,7 +135,6 @@ $(document).ready(function() {
     $("#lives-left").css('opacity', '1');
     $("#lives-left").css('opacity', '1');
     $(".logo").css('opacity', '1');
-    $('#rule-2').css("opacity", "1");
     $('.game-title').css("opacity", "1");
 
     // run countdown to game start
@@ -232,12 +230,10 @@ $(document).ready(function() {
     console.log(lives);
     $('.game-title').text('PICK ANOTHER!');
     if (lives === 0) {
-      $('#rule-2').css("opacity", "0");
       $('.game-title').html("<button id='restart-game'>RESTART</button>");
       $('.game-title').toggleClass('start');
       $(".game-title").on("click", function() {
         $(this).css("opacity", "0");
-        $(this).off("click");
       });
     }
   };

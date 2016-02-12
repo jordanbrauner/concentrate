@@ -2,25 +2,7 @@
 GAMEBOARD
 *******************************/
 
-#restart-game {
-  display: flex;
-  justify-content: center;
-  width: 165px;
-  height: 50px;
-  align-items: center;
-  background-color: #ff6600;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: .1px;
-  transition: opacity 0.5s ease;
-  transition: background-color 0.15s ease;
-}
-
-#restart-game:hover {
-  background-color: #e55c00;
-}
+/* Start Game styles */
 
 .start, .game-title {
   position: absolute;
@@ -39,7 +21,8 @@ GAMEBOARD
 
 .game-title {
   top: 30px;
-  font-size: 24px;
+  font-size: 29px;
+  letter-spacing: -.5px;
 }
 
 .game-title.start:hover {
@@ -55,14 +38,14 @@ GAMEBOARD
   box-shadow: 0px 5px 20px 7px #444;
 }
 
-#rule-2 {
+/*#rule-2 {
   position: absolute;
   top: 65px;
   left: 72px;
   width: 250px;
   border-bottom: 1px solid #999;
   opacity: .8;
-}
+}*/
 
 /*******************************
 USER INTERFACE
@@ -70,9 +53,37 @@ USER INTERFACE
 
 /* ABOVE THE TILES */
 
+/* Restart Game Button */
+#restart-game {
+  display: flex;
+  justify-content: center;
+  width: 165px;
+  height: 50px;
+  align-items: center;
+  background-color: #ff6600;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .1px;
+  transition: background-color 0.15s ease;
+}
+
+#restart-game:hover {
+  background-color: #e55c00;
+}
+
+button:focus {
+  outline:0;
+}
+
 /* Fade UI */
-#lives, #lives-left, #quote-wrapper, .game-title {
+#lives, #lives-left, #quote-wrapper {
   transition: opacity 0.75s ease;
+}
+
+.game-title {
+  transition: opacity 0.35s ease;
 }
 
 #lives, #lives-left {
@@ -108,6 +119,10 @@ USER INTERFACE
   width: 20px;
   border-radius: 50px;
   position: absolute;
+}
+
+#match-icon-1, #match-icon-2, #match-icon-3, #match-icon-4, #match-icon-5, #match-icon-6, #match-icon-7, #match-icon-8 {
+  transition: background-color 0.25s ease;
 }
 
 #match-icon-1 {
