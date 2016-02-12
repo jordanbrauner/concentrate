@@ -7,13 +7,14 @@ $(document).ready(function() {
   var match1, match2;
   var matchElement1, matchElement2, matchElementColor;
   var wrong;
-  var lives = 1;
+  var lives = 5;
   var intCountdownRun;
 
   // Instantiate arrays
   var quotes = ["Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"", "If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"", "When you go in for a job interview, I think a good thing to ask is if they ever press charges\"", "If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"", "Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\""];
   var deck = ["color1", "color1", "color2", "color2", "color3", "color3", "color4", "color4", "color5", "color5", "color6", "color6", "color7", "color7", "color8", "color8"];
   var shuffled = [];
+
 
   // All methods for randomizing tiles on board
   var tileFunctions = {
@@ -87,7 +88,7 @@ $(document).ready(function() {
     console.log("resetGame function called");
     // set variables
     matched = 0;
-    lives = 1;
+    lives = 5;
     countdownNum = 3;
     clicks = 0;
     match1 = undefined;

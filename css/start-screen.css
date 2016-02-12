@@ -10,11 +10,11 @@ START SCREEN
   width: 550px;
   z-index: 3;
   opacity: 1;
-  transition: opacity .25s ease-in-out;
+  transition: opacity .75s ease;
 }
 
 #splash-image:hover {
-  opacity: .7;
+  opacity: 0.65;
 }
 
 #start-screen {
