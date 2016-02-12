@@ -90,13 +90,20 @@ FOOTER
 *******************************/
 
 footer {
-  display: block;
-  margin-top: 5.5em;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 5.3em;
   opacity: .8;
 }
 
-footer p {
+footer ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+footer ul li {
+  margin: 5px;
   font-family: sans-serif;
   color: #FFF;
   font-size: .6em;

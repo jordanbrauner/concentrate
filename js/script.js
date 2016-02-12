@@ -73,7 +73,7 @@ $(document).ready(function() {
     $('#small-logo-1').show();
     $('#small-logo-2').show();
     // Run countdown function to show tiles at game start
-    setTimeout(resetGame, 1000);
+    setTimeout(resetGame, 750);
   });
 
   // Resets game when clicking on game-title
