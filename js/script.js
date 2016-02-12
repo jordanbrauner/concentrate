@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+  // Testing
+  $('#board-wrapper').attr("class", "you-won");
+
   // Declare variables
   var countdownNum = 3;
   var clicks = 0;
@@ -85,6 +88,7 @@ $(document).ready(function() {
   var resetGame = function() {
     $('.game-title').html("READY?");
     $('.game-title').css('opacity', '1');
+    $('#board-wrapper').removeClass("you-won");
     console.log("resetGame function called");
     // set variables
     matched = 0;
@@ -224,7 +228,8 @@ $(document).ready(function() {
       $('.game-title').text('PICK ANOTHER!');
     }
     else {
-      $('.game-title').text('CONGRATULATIONS!');
+      $('.game-title').text('YOU WON!');
+      $('#board-wrapper').addClass("you-won");
     }
   };
 
