@@ -190,7 +190,7 @@ $(document).ready(function() {
           $('.game-title').text('IT\'S A MATCH!');
           clicks = 0;
           matched += 1;
-          matchElementColor = matchElement2.css('background-color');
+          matchElementColor = matchElement1.css('background-color');
           $("#match-icon-"+matched).css('background-color', matchElementColor);
           setTimeout(correctMatch, 1000);
           console.log(matched);
