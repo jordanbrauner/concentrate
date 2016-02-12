@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   // Testing
-  $('#board-wrapper').attr("class", "you-won");
+  // $('#board-wrapper').attr("class", "you-won");
 
   // Declare variables
   var countdownNum = 3;
@@ -212,6 +212,7 @@ $(document).ready(function() {
           console.log(matched);
         }
         else {
+          clicks = 0;
           $('.game-title').text('NOPE!');
           setTimeout(wrongMatch, 1000);
         }
@@ -237,10 +238,11 @@ $(document).ready(function() {
   var wrongMatch = function () {
     $(matchElement1).toggleClass('hide');
     $(matchElement2).toggleClass('hide');
-    lives -= 1;
-    $('#lives').text(lives);
-    clicks = 0;
-    console.log(lives);
+    if(lives > 0) {
+      lives -= 1;
+      $('#lives').text(lives);
+      console.log(lives);
+    }
     $('.game-title').text('PICK ANOTHER!');
     if (lives === 0) {
       $('.game-title').html("<button id='restart-game'>RESTART</button>");
