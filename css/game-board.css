@@ -2,6 +2,26 @@
 GAMEBOARD
 *******************************/
 
+#restart-game {
+  display: flex;
+  justify-content: center;
+  width: 165px;
+  height: 50px;
+  align-items: center;
+  background-color: #ff6600;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .1px;
+  transition: opacity 0.5s ease;
+  transition: background-color 0.15s ease;
+}
+
+#restart-game:hover {
+  background-color: #e55c00;
+}
+
 .start, .game-title {
   position: absolute;
   padding: 0px 0px 0px 72px;
@@ -51,7 +71,7 @@ USER INTERFACE
 /* ABOVE THE TILES */
 
 /* Fade UI */
-#lives, #lives-left, #quote-wrapper {
+#lives, #lives-left, #quote-wrapper, .game-title {
   transition: opacity 0.75s ease;
 }
 

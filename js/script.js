@@ -58,6 +58,8 @@ $(document).ready(function() {
   };
 
   // Set game board UI
+  $('#rule-2').css('opacity', '1');
+  $('.game-title').css('opacity', '1');
   $("#quote-wrapper").css('opacity', '0');
   $("#lives").css('opacity', '0');
   $("#lives-left").css('opacity', '0');
@@ -77,10 +79,12 @@ $(document).ready(function() {
 
   // Resets game when clicking on game-title
   $('.start').on('click', function() {
-    resetGame();
+    setTimeout(resetGame, 1000);
   });
 
   var resetGame = function() {
+    $('.game-title').html("READY?");
+    $('.game-title').css('opacity', '1');
     console.log("resetGame function called");
     // set variables
     matched = 0;
@@ -132,6 +136,8 @@ $(document).ready(function() {
     $("#lives-left").css('opacity', '1');
     $("#lives-left").css('opacity', '1');
     $(".logo").css('opacity', '1');
+    $('#rule-2').css("opacity", "1");
+    $('.game-title').css("opacity", "1");
 
     // run countdown to game start
     intCountdownRun = setInterval(countdownRun, 1000);
@@ -226,8 +232,13 @@ $(document).ready(function() {
     console.log(lives);
     $('.game-title').text('PICK ANOTHER!');
     if (lives === 0) {
-      $('.game-title').text('TRY AGAIN?');
+      $('#rule-2').css("opacity", "0");
+      $('.game-title').html("<button id='restart-game'>RESTART</button>");
       $('.game-title').toggleClass('start');
+      $(".game-title").on("click", function() {
+        $(this).css("opacity", "0");
+        $(this).off("click");
+      });
     }
   };
 
