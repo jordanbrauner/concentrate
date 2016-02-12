@@ -7,7 +7,7 @@ $(document).ready(function() {
   var match1, match2;
   var matchElement1, matchElement2, matchElementColor;
   var wrong;
-  var lives = 2;
+  var lives = 5;
   var intCountdownRun;
 
   // Instantiate arrays
@@ -84,7 +84,7 @@ $(document).ready(function() {
     console.log("resetGame function called");
     // set variables
     matched = 0;
-    lives = 2;
+    lives = 5;
     countdownNum = 3;
     clicks = 0;
     match1 = undefined;
