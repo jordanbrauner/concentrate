@@ -166,18 +166,23 @@ $(document).ready(function() {
   };
 
   // starts the game
-  var startGame = function () {
+  var startGame = function() {
     $('.game-title').text('FIND A MATCH!');
     $('#tile-wrapper div').toggleClass('hide');
-    $('.hide').on('click', function() {
-    if ((lives !== 0) && (matched !== 8)) {
+    $('.hide').on('click', clickTile);
+  };
+
+  // Handles tile clicks
+  var clickTile = function() {
+    if ((lives > 0) && (matched < 8) && (-1 < clicks < 2)) {
       if (clicks === 0) {
+        clicks += 1;
         $(this).toggleClass('hide');
         matchElement1 = $(this);
         match1 = $(this).attr('class');
-        clicks += 1;
       }
-      else {
+      else if (clicks === 1) {
+        clicks += 1;
         $(this).toggleClass('hide');
         matchElement2 = $(this);
         match2 = $(this).attr('class');
@@ -195,8 +200,10 @@ $(document).ready(function() {
           setTimeout(wrongMatch, 1000);
         }
       }
+      else {
+        console.log("Not allowing click");
+      }
     }
-  });
   };
 
   // runs when a correct match is made
