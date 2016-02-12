@@ -39,6 +39,8 @@ header {
   height: 1.5em;
   margin: 0 auto;
   text-align: center;
+  opacity: 0;
+  transition: opacity 3.5s ease;
 }
 
 #small-logo-1, #small-logo-2 {

@@ -50,6 +50,11 @@ USER INTERFACE
 
 /* ABOVE THE TILES */
 
+/* Fade UI */
+#lives, #lives-left, #quote-wrapper {
+  transition: opacity 0.75s ease;
+}
+
 #lives, #lives-left {
   position: absolute;
   font-family: 'Montserrat', sans-serif;
@@ -221,6 +226,7 @@ TILES
   width: 85px;
   border-radius: 5px;
   margin: 7px;
+  transition: background-color 0.3s ease;
 }
 
 .hide:hover {

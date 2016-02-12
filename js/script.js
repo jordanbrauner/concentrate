@@ -7,19 +7,13 @@ $(document).ready(function() {
   var match1, match2;
   var matchElement1, matchElement2, matchElementColor;
   var wrong;
-  var lives = 5;
-  $('#lives').text(lives);
+  var lives = 2;
+  var intCountdownRun;
 
   // Instantiate arrays
   var quotes = ["Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"", "If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"", "When you go in for a job interview, I think a good thing to ask is if they ever press charges\"", "If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"", "Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\""];
   var deck = ["color1", "color1", "color2", "color2", "color3", "color3", "color4", "color4", "color5", "color5", "color6", "color6", "color7", "color7", "color8", "color8"];
   var shuffled = [];
-
-  // Chooses a random quote
-  var randomQuote = function(array) {
-    var i = Math.floor(Math.random() * array.length);
-    $(".quote").text(array[i]);
-  };
 
   // All methods for randomizing tiles on board
   var tileFunctions = {
@@ -57,17 +51,61 @@ $(document).ready(function() {
     }
   };
 
-  // Start splash screen
+  // Chooses a random quote
+  var randomQuote = function(array) {
+    var i = Math.floor(Math.random() * array.length);
+    $(".quote").text(array[i]);
+  };
+
+  // Set game board UI
+  $("#quote-wrapper").css('opacity', '0');
+  $("#lives").css('opacity', '0');
+  $("#lives-left").css('opacity', '0');
+  $(".logo").css('opacity', '0');
   $('#small-logo-1').hide();
   $('#small-logo-2').hide();
   $('.game-title').text("READY?");
-
   // Begin game when user clicks on splash-image
   $('#splash-image').on('click', function() {
+    // Clear splash image and show game logo above board
     $('#splash-image').css("opacity", "0");
     $('#small-logo-1').show();
     $('#small-logo-2').show();
-    setInterval(countdown, 1000);
+    // Run countdown function to show tiles at game start
+    setTimeout(resetGame, 1000);
+  });
+
+  // Resets game when clicking on game-title
+  $('.start').on('click', function() {
+    resetGame();
+  });
+
+  var resetGame = function() {
+    console.log("resetGame function called");
+    // set variables
+    matched = 0;
+    lives = 2;
+    countdownNum = 3;
+    clicks = 0;
+    match1 = undefined;
+    match2 = undefined;
+    matchElement1 = null;
+    matchElement2 = null;
+    matchElementColor = null;
+    wrong = null;
+    quotes = ["Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"", "If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"", "When you go in for a job interview, I think a good thing to ask is if they ever press charges\"", "If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"", "Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\""];
+    deck = ["color1", "color1", "color2", "color2", "color3", "color3", "color4", "color4", "color5", "color5", "color6", "color6", "color7", "color7", "color8", "color8"];
+    shuffled = [];
+    $('.hide').off('click');
+    $("#tile-wrapper").children().each(function(index, element) {
+        $(element).removeAttr('class');
+        $(element).addClass('hide');
+    });
+    for (var i = 8; i > 0; i--) {
+      $("#match-icon-"+i).css('background-color', 'white');
+    }
+    $('#lives').text(lives);
+    // Render random quote
     console.log("calling randomQuote");
     randomQuote(quotes);
     // Randomize deck
@@ -76,43 +114,48 @@ $(document).ready(function() {
     // Fill board
     console.log("calling fillBoard. Here is shuffled: " + shuffled);
     tileFunctions.fillBoard(shuffled);
-    // NOTE Turn off event listener?
-  });
-
-  // Resets game when clicking on game-title
-  $('.start').on('click', function() {
-    countdownNum = 0;
-    lives = 4;
-    $('#lives').text(lives);
-    setInterval(countdown, 1000);
-  });
+    // Initiate countdown
+    countdownClear();
+  };
 
   // Countdown until show board and startgame are called
-  var countdown = function() {
+  var countdownClear = function() {
+    console.log("countdownClear called");
+
+    // set up board
+    $('#splash-image').hide();
+    $('#lives').text(lives);
+
+    // fade in UI
+    $("#quote-wrapper").css('opacity', '1');
+    $("#lives").css('opacity', '1');
+    $("#lives-left").css('opacity', '1');
+    $("#lives-left").css('opacity', '1');
+    $(".logo").css('opacity', '1');
+
+    // run countdown to game start
+    intCountdownRun = setInterval(countdownRun, 1000);
+  };
+
+  var countdownRun = function() {
+    console.log("countdownRun called");
     if (countdownNum > 0) {
       $('.game-title').text(countdownNum);
       countdownNum -= 1;
-    }
-    else if (countdownNum === 0) {
+    } else {
+      clearInterval(intCountdownRun);
       begin();
-      $('#splash-image').hide();
-      countdownNum -=1;
     }
   };
 
   // reveals board then starts game
-  // BUG: countdown continues to loop as clearInterval is not working
   var begin = function() {
-    if (countdownNum === 0) {
-      clearInterval(countdown);
-      $('.game-title').text("CONCENTRATE!");
-      showBoard();
-      setTimeout(startGame, 3000);
-      // console.log('running countdown else');
-    }
-    else {
-      countdown();
-    }
+    console.log("Match1: " + match1);
+    console.log("Match2: " + match2);
+    console.log("clicks: " + clicks);
+    $('.game-title').text("CONCENTRATE!");
+    showBoard();
+    setTimeout(startGame, 3000);
   };
 
   // shows all the colors briefly at the start of the game
@@ -124,7 +167,6 @@ $(document).ready(function() {
 
   // starts the game
   var startGame = function () {
-    clearInterval(countdown);
     $('.game-title').text('FIND A MATCH!');
     $('#tile-wrapper div').toggleClass('hide');
     $('.hide').on('click', function() {
@@ -181,6 +223,5 @@ $(document).ready(function() {
       $('.game-title').toggleClass('start');
     }
   };
-
 
 });

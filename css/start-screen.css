@@ -24,44 +24,46 @@ START SCREEN
   z-index: 2;
 }
 
-#game-logo-1 {
+/* Logo above Game Board */
+
+#game-logo-1, #game-logo-2 {
+  z-index: 3;
+  font-weight: 700;
+}
+
+#game-logo-1, #game-logo-2, #game-logo-3 {
   position: absolute;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#game-logo-1 {
   top: 235px;
   left: 70px;
-  font-family: 'Montserrat', sans-serif;
   font-size: 48px;
-  font-weight: 700;
   color: #999;
   letter-spacing: 1px;
   opacity: .8;
-  z-index: 3;
 }
 
 #game-logo-1:hover {
   color: #777;
-  z-index: 3;
 }
 
 #game-logo-2 {
-  position: absolute;
   left: 110px;
-  font-family: 'Montserrat', sans-serif;
   font-size: 430px;
-  font-weight: 700;
   color: #777;
   opacity: .2;
-  z-index: 3;
 }
 
 #game-logo-3 {
-  position: absolute;
   top: 500px;
   left: 190px;
-  font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 400;
   color: #777;
   letter-spacing: 3px;
+  transition: opacity 0.5s ease;
 }
 
 #rule-1 {
@@ -72,11 +74,3 @@ START SCREEN
   border-bottom: 1px solid #777;
   opacity: .7;
 }
-
-/*#jordland-logo {
-  position: absolute;
-  left: 125px;
-  bottom: 70px;
-  height: 270px;
-  width: 270px;
-}*/
