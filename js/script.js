@@ -7,7 +7,7 @@ $(document).ready(function() {
   var match1, match2;
   var matchElement1, matchElement2, matchElementColor;
   var wrong;
-  var lives = 5;
+  var lives = 1;
   var intCountdownRun;
 
   // Instantiate arrays
@@ -87,7 +87,7 @@ $(document).ready(function() {
     console.log("resetGame function called");
     // set variables
     matched = 0;
-    lives = 5;
+    lives = 1;
     countdownNum = 3;
     clicks = 0;
     match1 = undefined;
@@ -138,6 +138,7 @@ $(document).ready(function() {
     $('.game-title').css("opacity", "1");
 
     // run countdown to game start
+    $('.game-title').removeClass("swipe-fade");
     intCountdownRun = setInterval(countdownRun, 1000);
   };
 
@@ -146,8 +147,14 @@ $(document).ready(function() {
     if (countdownNum > 0) {
       $('.game-title').text(countdownNum);
       countdownNum -= 1;
+      $('.game-title').addClass("swipe-fade");
+      setTimeout(function() {
+        $('.game-title').text(countdownNum);
+        $('.game-title').removeClass("swipe-fade");
+      }, 950);
     } else {
       clearInterval(intCountdownRun);
+      $('.game-title').removeClass("swipe-fade");
       begin();
     }
   };

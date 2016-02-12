@@ -1,0 +1,34 @@
+.swipe-fade {
+  animation: swipeFadeRight 1s ease;
+  transition: opacity 1s ease-in;
+}
+
+@keyframes swipeFadeRight {
+  0% {
+    transform: translateX(0em);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(4em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(4em);
+    opacity: 0;
+  }
+}
+
+button:hover {
+  animation: pulse .6s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+}
