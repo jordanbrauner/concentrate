@@ -78,14 +78,14 @@ $(document).ready(function() {
   };
 
   // Set game board UI
-  $('.game-title').css('opacity', '1');
+  $('.notification').css('opacity', '1');
   $("#quote-wrapper").css('opacity', '0');
   $("#lives").css('opacity', '0');
   $("#lives-left").css('opacity', '0');
   $(".logo").css('opacity', '0');
   $('#small-logo-1').hide();
   $('#small-logo-2').hide();
-  $('.game-title').text("READY TO MATCH?");
+  $('.notification').text("READY TO MATCH?");
   // Begin game when user clicks on splash-image
   $('#splash-image').on('click', function() {
     // Clear splash image and show game logo above board
@@ -96,14 +96,14 @@ $(document).ready(function() {
     setTimeout(resetGame, 750);
   });
 
-  // Resets game when clicking on game-title
+  // Resets game when clicking on restart button
   $('.start').on('click', function() {
-    setTimeout(resetGame, 1000);
+    setTimeout(resetGame, 700);
   });
 
   var resetGame = function() {
-    $('.game-title').html("READY TO MATCH?");
-    $('.game-title').css('opacity', '1');
+    $('.notification').html("READY TO MATCH?");
+    $('.notification').css('opacity', '1');
     $('#board-wrapper').removeClass("you-won");
     console.log("resetGame function called");
     // set variables
@@ -124,9 +124,22 @@ $(document).ready(function() {
         $(element).removeAttr('class');
         $(element).addClass('hide');
     });
+    // Reset animation for matched icons -- START
     for (var i = 8; i > 0; i--) {
-      $("#match-icon-"+i).css('background-color', 'white');
+      $("#match-icon-"+i).addClass('icon-matched-reset');
     }
+    setTimeout(function() {
+      for (var i = 8; i > 0; i--) {
+        $("#match-icon-"+i).css('background-color', 'white');
+      }
+    }, 700);
+    setTimeout(function() {
+      for (var i = 8; i > 0; i--) {
+        $("#match-icon-"+matched).removeClass('icon-matched');
+        $("#match-icon-"+i).removeClass('icon-matched-reset');
+      }
+    }, 1000);
+    // Reset animation for matched icons -- END
     $('#lives').text(lives);
     // Render random quote
     console.log("calling randomQuote");
@@ -155,26 +168,26 @@ $(document).ready(function() {
     $("#lives-left").css('opacity', '1');
     $("#lives-left").css('opacity', '1');
     $(".logo").css('opacity', '1');
-    $('.game-title').css("opacity", "1");
+    $('.notification').css("opacity", "1");
 
     // run countdown to game start
-    $('.game-title').removeClass("swipe-fade");
+    $('.notification').removeClass("swipe-fade");
     intCountdownRun = setInterval(countdownRun, 1000);
   };
 
   var countdownRun = function() {
     console.log("countdownRun called");
     if (countdownNum > 0) {
-      $('.game-title').text(countdownNum);
+      $('.notification').text(countdownNum);
       countdownNum -= 1;
-      $('.game-title').addClass("swipe-fade");
+      $('.notification').addClass("swipe-fade");
       setTimeout(function() {
-        $('.game-title').text(countdownNum);
-        $('.game-title').removeClass("swipe-fade");
+        $('.notification').text(countdownNum);
+        $('.notification').removeClass("swipe-fade");
       }, 950);
     } else {
       clearInterval(intCountdownRun);
-      $('.game-title').removeClass("swipe-fade");
+      $('.notification').removeClass("swipe-fade");
       begin();
     }
   };
@@ -184,7 +197,7 @@ $(document).ready(function() {
     console.log("Match1: " + match1);
     console.log("Match2: " + match2);
     console.log("clicks: " + clicks);
-    $('.game-title').text("CONCENTRATE!");
+    $('.notification').text("CONCENTRATE!");
     showBoard();
     setTimeout(startGame, 3000);
   };
@@ -192,13 +205,13 @@ $(document).ready(function() {
   // shows all the colors briefly at the start of the game
   var showBoard = function () {
     $('.start').toggleClass('start');
-    $('.game-title').text('CONCENTRATE!');
+    $('.notification').text('CONCENTRATE!');
     $('.hide').toggleClass('hide');
   };
 
   // starts the game
   var startGame = function() {
-    $('.game-title').text('FIND A MATCH!');
+    $('.notification').text('FIND A MATCH!');
     $('#tile-wrapper div').toggleClass('hide');
     $('.hide').on('click', clickTile);
   };
@@ -246,21 +259,19 @@ $(document).ready(function() {
     matched += 1;
     if (matched < 8) {
       clicks = 0;
-      $('.game-title').text('IT\'S A MATCH!');
+      $('.notification').text('IT\'S A MATCH!');
       matchElementColor = matchElement1.css('background-color');
       $("#match-icon-"+matched).css('background-color', matchElementColor);
       $("#match-icon-"+matched).addClass('icon-matched');
 
       // Animate icon
-
       $('.hide').on('click', clickTile);
       setTimeout(function() {
-        $('.game-title').text('FIND ANOTHER!');
-        $("#match-icon-"+matched).removeClass('icon-matched');
+        $('.notification').text('FIND ANOTHER!');
       }, 700);
     }
     else {
-      $('.game-title').text('YOU WON!');
+      $('.notification').text('YOU WON!');
       $('#board-wrapper').addClass("you-won");
     }
   };
@@ -278,18 +289,18 @@ $(document).ready(function() {
 
     // Matched wrong but still have lives yet
     if (lives > 0) {
-      $('.game-title').text('NOT A MATCH!');
+      $('.notification').text('NOT A MATCH!');
       setTimeout(function() {
-        $('.game-title').text('FIND ANOTHER!');
+        $('.notification').text('FIND ANOTHER!');
         $('.hide').on('click', clickTile);
       }, 700);
     }
 
     // Matched wrong and no lives left
     else if (lives <= 0) {
-      $('.game-title').html("<button id='restart-game'>RESTART</button>");
-      $('.game-title').toggleClass('start');
-      $(".game-title").on("click", function() {
+      $('.notification').html("<button id='restart-game'>RESTART</button>");
+      $('.notification').toggleClass('start');
+      $(".notification").on("click", function() {
         $(this).css("opacity", "0");
       });
     }

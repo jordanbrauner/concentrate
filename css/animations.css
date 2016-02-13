@@ -75,6 +75,7 @@ button:hover {
 }
 
 .icon-matched {
+  opacity: 1;
   animation: matchIconAnimate .5s ease-in-out;
   animation-iteration-count: 1;
   animation-direction: normal;
@@ -97,5 +98,25 @@ button:hover {
   }
   100% {
     transform: translateX(0em);
+  }
+}
+
+.icon-matched-reset {
+  opacity: 0;
+  animation: iconMatchedReset .5s ease-in;
+  transition: opacity .5s ease-in;
+}
+
+@keyframes iconMatchedReset {
+  0% {
+    transform: translateX(0em);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(3em);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }

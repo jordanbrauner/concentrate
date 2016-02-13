@@ -92,6 +92,7 @@ FOOTER
 footer {
   display: flex;
   justify-content: center;
+  /*background-color: #ffcc01;*/
   margin-top: 5.3em;
   opacity: .8;
 }

@@ -4,7 +4,7 @@ GAMEBOARD
 
 /* Start Game styles */
 
-.start, .game-title {
+.start, .notification {
   position: absolute;
   padding: 0px 0px 0px 72px;
   font-family: 'Montserrat', sans-serif;
@@ -19,13 +19,13 @@ GAMEBOARD
   font-size: 37px;
 }
 
-.game-title {
+.notification {
   top: 30px;
   font-size: 29px;
   letter-spacing: -.5px;
 }
 
-.game-title.start:hover {
+.notification.start:hover {
   color: #777;
 }
 
@@ -35,7 +35,7 @@ GAMEBOARD
   background-color: white;
   height: 660px;
   width: 550px;
-  box-shadow: 0px 5px 20px 7px #444;
+  /*box-shadow: 0px 5px 20px 7px #444;*/
 }
 
 /*#rule-2 {
@@ -82,7 +82,7 @@ button:focus {
   transition: opacity 0.75s ease;
 }
 
-.game-title {
+.notification {
   transition: opacity 0.35s ease;
 }
 
@@ -121,7 +121,11 @@ button:focus {
   position: absolute;
 }
 
-#match-icon-1, #match-icon-2, #match-icon-3, #match-icon-4, #match-icon-5, #match-icon-6, #match-icon-7, #match-icon-8 {
+.icons {
+  opacity: 0;
+}
+
+#match-icon-1, #match-icon-2, #match-icon-3, #match-icon-4, #match-icon-5, #match-icon-6, #match-icon-7, #match-icon-8 {  
   transition: background-color 0.25s ease;
 }
 
