@@ -125,7 +125,7 @@ button:focus {
   opacity: 0;
 }
 
-#match-icon-1, #match-icon-2, #match-icon-3, #match-icon-4, #match-icon-5, #match-icon-6, #match-icon-7, #match-icon-8 {  
+#match-icon-1, #match-icon-2, #match-icon-3, #match-icon-4, #match-icon-5, #match-icon-6, #match-icon-7, #match-icon-8 {
   transition: background-color 0.25s ease;
 }
 
@@ -230,7 +230,8 @@ TILES - CLICKED
 }
 
 .color4 {
-  background-color: #ff689b;
+  /*background-color: #ff689b; original*/
+  background-color: #f96697;
 }
 
 .color5 {
@@ -242,7 +243,8 @@ TILES - CLICKED
 }
 
 .color7 {
-  background-color: #ecc5c5;
+  /*background-color: #ecc5c5;  original */
+  background-color: #ecb2b2;
 }
 
 .color8 {
@@ -264,7 +266,8 @@ TILES
 
 .hide {
   display: inline-block;
-  background-color: #cbcbcb;
+  /*background-color: #cbcbcb;*/
+  background-color: #d2d2d2;
   height: 85px;
   width: 85px;
   border-radius: 5px;
