@@ -34,23 +34,7 @@ button:hover {
   }
 }
 
-/* Pulse opacity of splash screen */
-.pulseOpacity {
-  animation: pulseOpacity 1.125s ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes pulseOpacity {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-
-
+/* Win Shake */
 .you-won {
   animation: youWon 2.15s ease;
   animation-iteration-count: 2;
@@ -87,5 +71,31 @@ button:hover {
   }
   100% {
     transform: translateX(0em) rotate(0);
+  }
+}
+
+.icon-matched {
+  animation: matchIconAnimate .5s ease-in-out;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  z-index: 5;
+}
+
+@keyframes matchIconAnimate {
+  0% {
+    transform: translateX(7em);
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    transform: translateX(-.5em);
+  }
+  85% {
+    transform: translateX(.25em);
+  }
+  100% {
+    transform: translateX(0em);
   }
 }

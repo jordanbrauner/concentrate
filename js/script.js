@@ -85,7 +85,7 @@ $(document).ready(function() {
   $(".logo").css('opacity', '0');
   $('#small-logo-1').hide();
   $('#small-logo-2').hide();
-  $('.game-title').text("READY?");
+  $('.game-title').text("READY TO MATCH?");
   // Begin game when user clicks on splash-image
   $('#splash-image').on('click', function() {
     // Clear splash image and show game logo above board
@@ -102,7 +102,7 @@ $(document).ready(function() {
   });
 
   var resetGame = function() {
-    $('.game-title').html("READY?");
+    $('.game-title').html("READY TO MATCH?");
     $('.game-title').css('opacity', '1');
     $('#board-wrapper').removeClass("you-won");
     console.log("resetGame function called");
@@ -205,34 +205,37 @@ $(document).ready(function() {
 
   // Handles tile clicks
   var clickTile = function() {
-    if ((lives > 0) && (matched < 8) && (-1 < clicks < 2)) {
+    if ((lives > 0) && (matched < 8)) {
+
+      // If you clicked the first tile this turn
       if (clicks === 0) {
         clicks += 1;
         $(this).toggleClass('hide');
         matchElement1 = $(this);
         match1 = $(this).attr('class');
+        console.log("match1: " + match1);
       }
+
+      // If you clicked the second tile this turn
       else if (clicks === 1) {
         clicks += 1;
+        $('.hide').off('click');
         $(this).toggleClass('hide');
         matchElement2 = $(this);
         match2 = $(this).attr('class');
+        console.log("match2: " + match2);
+
+        // If it's a match or not
         if (match1 === match2) {
-          $('.game-title').text('IT\'S A MATCH!');
-          clicks = 0;
-          matched += 1;
-          matchElementColor = matchElement1.css('background-color');
-          $("#match-icon-"+matched).css('background-color', matchElementColor);
-          setTimeout(correctMatch, 1000);
-          console.log(matched);
-        }
-        else {
-          clicks = 0;
-          $('.game-title').text('NOPE!');
-          setTimeout(wrongMatch, 1000);
+          correctMatch();
+        } else if (match1 !== match2) {
+          wrongMatch();
         }
       }
-      else {
+
+      // If you are clicking tiles after your second click that turn
+      else if (clicks > 1) {
+        $('.hide').off('click');
         console.log("Not allowing click");
       }
     }
@@ -240,8 +243,21 @@ $(document).ready(function() {
 
   // runs when a correct match is made
   var correctMatch = function () {
+    matched += 1;
     if (matched < 8) {
-      $('.game-title').text('PICK ANOTHER!');
+      clicks = 0;
+      $('.game-title').text('IT\'S A MATCH!');
+      matchElementColor = matchElement1.css('background-color');
+      $("#match-icon-"+matched).css('background-color', matchElementColor);
+      $("#match-icon-"+matched).addClass('icon-matched');
+
+      // Animate icon
+
+      $('.hide').on('click', clickTile);
+      setTimeout(function() {
+        $('.game-title').text('FIND ANOTHER!');
+        $("#match-icon-"+matched).removeClass('icon-matched');
+      }, 700);
     }
     else {
       $('.game-title').text('YOU WON!');
@@ -251,15 +267,26 @@ $(document).ready(function() {
 
   // runs when an incorrect match is made
   var wrongMatch = function () {
-    $(matchElement1).toggleClass('hide');
-    $(matchElement2).toggleClass('hide');
-    if(lives > 0) {
-      lives -= 1;
-      $('#lives').text(lives);
-      console.log(lives);
+    clicks = 0;
+    lives -= 1;
+    $('#lives').text(lives);
+    console.log("Lives left: " + lives);
+    setTimeout(function() {
+      $(matchElement1).toggleClass('hide');
+      $(matchElement2).toggleClass('hide');
+    }, 700);
+
+    // Matched wrong but still have lives yet
+    if (lives > 0) {
+      $('.game-title').text('NOT A MATCH!');
+      setTimeout(function() {
+        $('.game-title').text('FIND ANOTHER!');
+        $('.hide').on('click', clickTile);
+      }, 700);
     }
-    $('.game-title').text('PICK ANOTHER!');
-    if (lives === 0) {
+
+    // Matched wrong and no lives left
+    else if (lives <= 0) {
       $('.game-title').html("<button id='restart-game'>RESTART</button>");
       $('.game-title').toggleClass('start');
       $(".game-title").on("click", function() {
