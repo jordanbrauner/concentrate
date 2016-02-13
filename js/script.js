@@ -171,7 +171,7 @@ $(document).ready(function() {
     $('.notification').css("opacity", "1");
 
     // run countdown to game start
-    $('.notification').removeClass("swipe-fade");
+    $('.notification').removeClass("countdown-animation");
     intCountdownRun = setInterval(countdownRun, 1000);
   };
 
@@ -180,14 +180,14 @@ $(document).ready(function() {
     if (countdownNum > 0) {
       $('.notification').text(countdownNum);
       countdownNum -= 1;
-      $('.notification').addClass("swipe-fade");
+      $('.notification').addClass("countdown-animation");
       setTimeout(function() {
         $('.notification').text(countdownNum);
-        $('.notification').removeClass("swipe-fade");
+        $('.notification').removeClass("countdown-animation");
       }, 950);
     } else {
       clearInterval(intCountdownRun);
-      $('.notification').removeClass("swipe-fade");
+      $('.notification').removeClass("countdown-animation");
       begin();
     }
   };
@@ -222,7 +222,7 @@ $(document).ready(function() {
 
       // If you clicked the first tile this turn
       if (clicks === 0) {
-        clicks += 1;
+        clicks = 1;
         $(this).toggleClass('hide');
         matchElement1 = $(this);
         match1 = $(this).attr('class');
@@ -231,7 +231,7 @@ $(document).ready(function() {
 
       // If you clicked the second tile this turn
       else if (clicks === 1) {
-        clicks += 1;
+        clicks = 2;
         $('.hide').off('click');
         $(this).toggleClass('hide');
         matchElement2 = $(this);
@@ -264,9 +264,9 @@ $(document).ready(function() {
       $("#match-icon-"+matched).css('background-color', matchElementColor);
       $("#match-icon-"+matched).addClass('icon-matched');
 
-      // Animate icon
-      $('.hide').on('click', clickTile);
+      // Keep fast click bug from happening
       setTimeout(function() {
+        $('.hide').on('click', clickTile);
         $('.notification').text('FIND ANOTHER!');
       }, 700);
     }
@@ -278,13 +278,15 @@ $(document).ready(function() {
 
   // runs when an incorrect match is made
   var wrongMatch = function () {
+    wrongMatchElement1 = matchElement1;
+    wrongMatchElement2 = matchElement2;
     clicks = 0;
     lives -= 1;
     $('#lives').text(lives);
     console.log("Lives left: " + lives);
     setTimeout(function() {
-      $(matchElement1).toggleClass('hide');
-      $(matchElement2).toggleClass('hide');
+      $(wrongMatchElement1).toggleClass('hide');
+      $(wrongMatchElement2).toggleClass('hide');
     }, 700);
 
     // Matched wrong but still have lives yet
