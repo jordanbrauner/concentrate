@@ -10,7 +10,7 @@
     opacity: 1;
   }
   70% {
-    transform: translateX(4em);
+    transform: translateX(3em);
     opacity: 0;
   }
   100% {

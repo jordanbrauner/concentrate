@@ -14,7 +14,21 @@ $(document).ready(function() {
   var intCountdownRun;
 
   // Instantiate arrays
-  var quotes = ["Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"", "If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"", "When you go in for a job interview, I think a good thing to ask is if they ever press charges\"", "If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"", "Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\""];
+  var quotes = [
+                 "Often, when I am reading a good book, I stop and thank my teacher. That is, I used to, until she got an unlisted number.\"",
+                 "Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"",
+                 "If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"",
+                 "If God dwells inside us like some people say, I sure hope He likes enchiladas, because that's what He's getting.\"",
+                 "I don't think I'm alone when I say I'd like to see more and more planets fall under the ruthless domination of our solar system.\"",
+                 "When you go in for a job interview, I think a good thing to ask is if they ever press charges.\"",
+                 "If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"",
+                 "Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\"",
+                 "When I die, I want to die peacefully, in my sleep, like my grandpa did. Not like the screaming passengers in his car.\"",
+                 "Whether they find a life there or not, I think Jupiter should be called an enemy planet.\"",
+                 "If any man says he hates war more than I do, he better have a knife, that's all I have to say\"",
+                 "When I go to heaven, I want to see my grandpa again. But he better have lost the nose hair and the old-man smell.\""
+  ];
+
   var deck = ["color1", "color1", "color2", "color2", "color3", "color3", "color4", "color4", "color5", "color5", "color6", "color6", "color7", "color7", "color8", "color8"];
   var shuffled = [];
 
@@ -56,9 +70,11 @@ $(document).ready(function() {
   };
 
   // Chooses a random quote
-  var randomQuote = function(array) {
-    var i = Math.floor(Math.random() * array.length);
-    $(".quote").text(array[i]);
+  var randomQuote = function(quoteArray) {
+    console.log(quoteArray.length);
+    var i = Math.floor(Math.random() * quoteArray.length);
+    console.log("Random Quote index is: " + i);
+    $(".quote").text(quoteArray[i]);
   };
 
   // Set game board UI
@@ -101,7 +117,6 @@ $(document).ready(function() {
     matchElement2 = null;
     matchElementColor = null;
     wrong = null;
-    quotes = ["Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"", "If trees could scream, would we be so cavalier about cutting them down? We might, if they screamed all the time, for no good reason.\"", "When you go in for a job interview, I think a good thing to ask is if they ever press charges\"", "If you ever accidentally drop your keys into a river of molten lava, let 'em go, because man, they're gone.\"", "Children need encouragement. If a kid gets an answer right, tell him it was a lucky guess. That way he develops a good, lucky feeling.\""];
     deck = ["color1", "color1", "color2", "color2", "color3", "color3", "color4", "color4", "color5", "color5", "color6", "color6", "color7", "color7", "color8", "color8"];
     shuffled = [];
     $('.hide').off('click');
