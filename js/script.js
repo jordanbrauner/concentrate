@@ -148,7 +148,7 @@ $(document).ready(function() {
     } else if (chosenDifficulty == 'medium') {
       lives = 5;
     } else if (chosenDifficulty == 'hard') {
-      lives = 1;
+      lives = 3;
     }
     matched = 0;
     countdownNum = 3;
@@ -354,7 +354,7 @@ $(document).ready(function() {
       setTimeout(function(){
         $('.notification').addClass('fade-out');
       }, 2000);
-      setTimeout(renderRestartButton, 2000);
+      setTimeout(renderRestartButton, 1700);
     }
   };
 
@@ -364,6 +364,8 @@ $(document).ready(function() {
     $('.notification').removeClass('fade-out');
     $('.notification').html("<button id='restart-game'>RESTART</button>");
     $('.notification').addClass('fade-in');
+
+    // On click of restart game button
     $('#restart-game').on("click", function() {
       // Reset animation for matched icons before board swipe -- START
       for (var i = 8; i > 0; i--) {
