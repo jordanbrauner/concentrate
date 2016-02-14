@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
-  // Testing
-  // $('#board-wrapper').attr("class", "you-won");
 
+  /////////////////////////////////////////////////////////////////////////////
   // Declare variables
+  /////////////////////////////////////////////////////////////////////////////
+
   var countdownNum = 3;
   var clicks = 0;
   var matched = 0;
@@ -13,8 +14,6 @@ $(document).ready(function() {
   var lives;
   var intCountdownRun;
   var chosenDifficulty;
-
-  // Instantiate arrays
   var quotes = [
                  "Often, when I am reading a good book, I stop and thank my teacher. That is, I used to, until she got an unlisted number.\"",
                  "Democracy is a beautiful thing, except for that part about letting just any old yokel vote.\"",
@@ -29,12 +28,15 @@ $(document).ready(function() {
                  "If any man says he hates war more than I do, he better have a knife, that's all I have to say\"",
                  "When I go to heaven, I want to see my grandpa again. But he better have lost the nose hair and the old-man smell.\""
   ];
-
   var deck = ["color1", "color1", "color2", "color2", "color3", "color3", "color4", "color4", "color5", "color5", "color6", "color6", "color7", "color7", "color8", "color8"];
   var shuffled = [];
 
 
-  // All methods for randomizing tiles on board
+  /////////////////////////////////////////////////////////////////////////////
+  // Setup Board
+  /////////////////////////////////////////////////////////////////////////////
+
+  // Shuffle Tiles and Fill Board
   var tileFunctions = {
     randomizeDeck: function(deck, shuffled) {
       var i = 0;
@@ -70,7 +72,7 @@ $(document).ready(function() {
     }
   };
 
-  // Chooses a random quote
+  // Render random quote
   var randomQuote = function(quoteArray) {
     console.log(quoteArray.length);
     var i = Math.floor(Math.random() * quoteArray.length);
@@ -78,32 +80,32 @@ $(document).ready(function() {
     $(".quote").text(quoteArray[i]);
   };
 
-  // Set game board UI
-  $('.notification').css('opacity', '1');
-  $("#quote-wrapper").css('opacity', '0');
-  $("#lives").css('opacity', '0');
-  $("#lives-left").css('opacity', '0');
-  $(".logo").css('opacity', '0');
-  $('#small-logo-1').hide();
-  $('#small-logo-2').hide();
-  $('.notification').html("<div id='difficulty'><button id='easy'>EASY</button><button id='medium'>MEDIUM</button><button id='hard'>HARD</button></div>");
+  // Render UI state at page load
+  var UIRefresh = function() {
+    $('.notification').css('opacity', '1');
+    $("#quote-wrapper").css('opacity', '0');
+    $("#lives").css('opacity', '0');
+    $("#lives-left").css('opacity', '0');
+    $(".logo").css('opacity', '0');
+    $('#small-logo-1').hide();
+    $('#small-logo-2').hide();
+    $('.notification').html("<div id='difficulty'><button id='easy'>EASY</button><button id='medium'>MEDIUM</button><button id='hard'>HARD</button></div>");
+  };
+  UIRefresh();
 
-  // Begin game when user clicks on splash-image
+  // Start game when user clicks on splash-image
   $('#splash-image').on('click', function() {
-    // Clear splash image and show game logo above board
     $('#splash-image').css("opacity", "0");
     $('#small-logo-1').show();
     $('#small-logo-2').show();
-    // Run countdown function to show tiles at game start
-    setTimeout(chooseDifficulty, 750);
+    setTimeout(setDifficulty, 750);
   });
 
-  // Resets game when clicking on restart button
-  $('.start').on('click', function() {
-    setTimeout(chooseDifficulty, 700);
-  });
+  /////////////////////////////////////////////////////////////////////////////
+  // Set Game Difficulty
+  /////////////////////////////////////////////////////////////////////////////
 
-  var chooseDifficulty = function() {
+  var setDifficulty = function() {
     $('.notification').html("<div id='difficulty'><button id='easy'>EASY</button><button id='medium'>MEDIUM</button><button id='hard'>HARD</button></div>");
     $('#splash-image').hide();
     $('#easy').on('click', function() {
@@ -123,6 +125,11 @@ $(document).ready(function() {
     });
   };
 
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Reset variables/UI and begin game
+  /////////////////////////////////////////////////////////////////////////////
+
   var resetGame = function() {
     // set board
     $('#board-wrapper').removeClass("you-won");
@@ -140,7 +147,7 @@ $(document).ready(function() {
     } else if (chosenDifficulty == 'medium') {
       lives = 5;
     } else if (chosenDifficulty == 'hard') {
-      lives = 3;
+      lives = 1;
     }
     matched = 0;
     countdownNum = 3;
@@ -250,6 +257,11 @@ $(document).ready(function() {
     $('.hide').on('click', clickTile);
   };
 
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Playing Game
+  /////////////////////////////////////////////////////////////////////////////
+
   // Handles tile clicks
   var clickTile = function() {
     if ((lives > 0) && (matched < 8)) {
@@ -339,7 +351,7 @@ $(document).ready(function() {
       setTimeout(function(){
         $('.notification').addClass('fade-out');
       }, 2250);
-      setTimeout(renderRestartButton, 3000);
+      setTimeout(renderRestartButton, 2250);
     }
   };
 
@@ -350,7 +362,7 @@ $(document).ready(function() {
     $('.notification').addClass('fade-in');
     $('#restart-game').on("click", function() {
       $('.notification').removeClass('fade-in');
-      $('.notification').addClass('fade-out');
+      $(this).css('opacity', '0');
       $(this).off('click');
       setTimeout(resetGame, 700);
     });
