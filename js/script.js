@@ -257,7 +257,7 @@ $(document).ready(function() {
       // If you clicked the first tile this turn
       if (clicks === 0) {
         clicks = 1;
-        $(this).toggleClass('hide');
+        $(this).removeClass('hide');
         matchElement1 = $(this);
         match1 = $(this).attr('class');
         console.log("match1: " + match1);
@@ -267,7 +267,7 @@ $(document).ready(function() {
       else if (clicks === 1) {
         clicks = 2;
         $('.hide').off('click');
-        $(this).toggleClass('hide');
+        $(this).removeClass('hide');
         matchElement2 = $(this);
         match2 = $(this).attr('class');
         console.log("match2: " + match2);
@@ -319,8 +319,8 @@ $(document).ready(function() {
     $('#lives').text(lives);
     console.log("Lives left: " + lives);
     setTimeout(function() {
-      $(wrongMatchElement1).toggleClass('hide');
-      $(wrongMatchElement2).toggleClass('hide');
+      $(wrongMatchElement1).addClass('hide');
+      $(wrongMatchElement2).addClass('hide');
     }, 700);
 
     // Matched wrong but still have lives yet
