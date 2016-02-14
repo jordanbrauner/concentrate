@@ -10,8 +10,9 @@ $(document).ready(function() {
   var match1, match2;
   var matchElement1, matchElement2, matchElementColor;
   var wrong;
-  var lives = 5;
+  var lives;
   var intCountdownRun;
+  var chosenDifficulty;
 
   // Instantiate arrays
   var quotes = [
@@ -85,7 +86,8 @@ $(document).ready(function() {
   $(".logo").css('opacity', '0');
   $('#small-logo-1').hide();
   $('#small-logo-2').hide();
-  $('.notification').text("READY TO MATCH?");
+  $('.notification').html("<div id='difficulty'><button id='easy'>EASY</button><button id='medium'>MEDIUM</button><button id='hard'>HARD</button></div>");
+
   // Begin game when user clicks on splash-image
   $('#splash-image').on('click', function() {
     // Clear splash image and show game logo above board
@@ -93,22 +95,54 @@ $(document).ready(function() {
     $('#small-logo-1').show();
     $('#small-logo-2').show();
     // Run countdown function to show tiles at game start
-    setTimeout(resetGame, 750);
+    setTimeout(chooseDifficulty, 750);
   });
 
   // Resets game when clicking on restart button
   $('.start').on('click', function() {
-    setTimeout(resetGame, 700);
+    setTimeout(chooseDifficulty, 700);
   });
 
+  var chooseDifficulty = function() {
+    $('.notification').html("<div id='difficulty'><button id='easy'>EASY</button><button id='medium'>MEDIUM</button><button id='hard'>HARD</button></div>");
+    $('#splash-image').hide();
+    $('#easy').on('click', function() {
+      chosenDifficulty = 'easy';
+      $('.notification').addClass('fade-out');
+      setTimeout(resetGame, 750);
+    });
+    $('#medium').on('click', function() {
+      chosenDifficulty = 'medium';
+      $('.notification').addClass('fade-out');
+      setTimeout(resetGame, 750);
+    });
+    $('#hard').on('click', function() {
+      chosenDifficulty = 'hard';
+      $('.notification').addClass('fade-out');
+      setTimeout(resetGame, 750);
+    });
+  };
+
   var resetGame = function() {
-    $('.notification').html("READY TO MATCH?");
-    $('.notification').css('opacity', '1');
+    // set board
     $('#board-wrapper').removeClass("you-won");
-    console.log("resetGame function called");
+    $('#difficulty button').off('click');
+    $('.notification').removeClass('fade-out');
+    $('.notification').html("");
+    setTimeout(function() {
+      $('.notification').addClass('fade-in');
+      $('.notification').html("MATCH THE COLORS!");
+    }, 250);
+
     // set variables
+    if (chosenDifficulty == 'easy') {
+      lives = 7;
+    } else if (chosenDifficulty == 'medium') {
+      lives = 5;
+    } else if (chosenDifficulty == 'hard') {
+      lives = 3;
+    }
     matched = 0;
-    lives = 5;
     countdownNum = 3;
     clicks = 0;
     match1 = undefined;
@@ -151,15 +185,15 @@ $(document).ready(function() {
     console.log("calling fillBoard. Here is shuffled: " + shuffled);
     tileFunctions.fillBoard(shuffled);
     // Initiate countdown
-    countdownClear();
+    setTimeout(countdownClear, 750);
   };
 
   // Countdown until show board and startgame are called
   var countdownClear = function() {
+    $('.notification').removeClass('fade-in');
     console.log("countdownClear called");
 
     // set up board
-    $('#splash-image').hide();
     $('#lives').text(lives);
 
     // fade in UI
@@ -184,6 +218,7 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.notification').text(countdownNum);
         $('.notification').removeClass("countdown-animation");
+        $('.notification').text("");
       }, 950);
     } else {
       clearInterval(intCountdownRun);
@@ -204,7 +239,6 @@ $(document).ready(function() {
 
   // shows all the colors briefly at the start of the game
   var showBoard = function () {
-    $('.start').toggleClass('start');
     $('.notification').text('CONCENTRATE!');
     $('.hide').toggleClass('hide');
   };
@@ -300,10 +334,14 @@ $(document).ready(function() {
 
     // Matched wrong and no lives left
     else if (lives <= 0) {
+      // Create Restart Button
       $('.notification').html("<button id='restart-game'>RESTART</button>");
-      $('.notification').toggleClass('start');
-      $(".notification").on("click", function() {
-        $(this).css("opacity", "0");
+      $('.notification').addClass('start');
+      $('.notification').on("click", function() {
+        $('.notification').addClass('fade-out');
+        $('.notification').removeClass('start');
+        $(this).off('click');
+        setTimeout(resetGame, 700);
       });
     }
   };

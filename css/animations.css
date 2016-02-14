@@ -127,3 +127,26 @@ button:hover {
     opacity: 0;
   }
 }
+
+.fade-out {
+  animation: fadeOut .75s ease-in-out;
+}
+
+.fade-in {
+  animation: fadeOut .75s ease-in-out;
+  animation-direction: reverse;
+}
+
+@keyframes fadeOut {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
