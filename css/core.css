@@ -8,6 +8,11 @@ CORE STYLES
   margin: 0;
 }
 
+*:active,
+*:hover {
+  cursor: default;
+}
+
 a {
   color: white;
   text-decoration: none;
@@ -15,6 +20,7 @@ a {
 
 a:hover {
   color: black;
+  cursor: pointer;
 }
 
 body {
@@ -82,6 +88,14 @@ BOARD-WRAPPER
   height: 750px;
   width: 550px;
   margin: 0 auto;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
 }
 
 

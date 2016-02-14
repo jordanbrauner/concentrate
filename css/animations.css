@@ -81,6 +81,7 @@ button:hover {
   }
 }
 
+/* Animate matched icons */
 .icon-matched {
   opacity: 1;
   animation: matchIconAnimate .5s ease-in-out;
@@ -108,6 +109,7 @@ button:hover {
   }
 }
 
+/* Animate matched icons being cleared from board */
 .icon-matched-reset {
   opacity: 0;
   animation: iconMatchedReset .5s ease-in;
@@ -128,10 +130,12 @@ button:hover {
   }
 }
 
+/* fade out element */
 .fade-out {
   animation: fadeOut .75s ease-in-out;
 }
 
+/* fade in element */
 .fade-in {
   animation: fadeOut .75s ease-in-out;
   animation-direction: reverse;
@@ -148,5 +152,43 @@ button:hover {
   100% {
     opacity: 0;
     display: none;
+  }
+}
+
+/* Swipe and fade in */
+.swipe-fade-in {
+  animation: swipeFadeIn 1s ease;
+}
+
+@keyframes swipeFadeIn {
+  0% {
+    transform: translateX(-3em);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(0em);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Swipe and fade out */
+.swipe-fade-out {
+  animation: swipeFadeOut 1s ease;
+}
+
+@keyframes swipeFadeOut {
+  0% {
+    transform: translateX(0em);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(3em);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }

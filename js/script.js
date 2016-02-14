@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   /////////////////////////////////////////////////////////////////////////////
   // Declare variables
   /////////////////////////////////////////////////////////////////////////////
@@ -82,6 +81,8 @@ $(document).ready(function() {
 
   // Render UI state at page load
   var UIRefresh = function() {
+    $("#board-wrapper").addClass('swipe-fade-in');
+    $("#board-wrapper").removeClass('invisible');
     $('.notification').css('opacity', '1');
     $("#quote-wrapper").css('opacity', '0');
     $("#lives").css('opacity', '0');
@@ -166,22 +167,6 @@ $(document).ready(function() {
         $(element).removeAttr('class');
         $(element).addClass('hide');
     });
-    // Reset animation for matched icons -- START
-    for (var i = 8; i > 0; i--) {
-      $("#match-icon-"+i).addClass('icon-matched-reset');
-    }
-    setTimeout(function() {
-      for (var i = 8; i > 0; i--) {
-        $("#match-icon-"+i).css('background-color', 'white');
-      }
-    }, 700);
-    setTimeout(function() {
-      for (var i = 8; i > 0; i--) {
-        $("#match-icon-"+matched).removeClass('icon-matched');
-        $("#match-icon-"+i).removeClass('icon-matched-reset');
-      }
-    }, 1000);
-    // Reset animation for matched icons -- END
     $('#lives').text(lives);
     // Render random quote
     console.log("calling randomQuote");
@@ -272,6 +257,7 @@ $(document).ready(function() {
         clicks = 1;
         console.log("you just clicked. Click count is: " + clicks);
         $(this).removeClass('hide');
+        $(this).off('click');
         matchElement1 = $(this);
         match1 = $(this).attr('class');
         console.log("match1: " + match1);
@@ -282,6 +268,7 @@ $(document).ready(function() {
         clicks = 2;
         console.log("you just clicked. Click count is: " + clicks);
         $(this).removeClass('hide');
+        $(this).off('click');
         matchElement2 = $(this);
         match2 = $(this).attr('class');
         console.log("match2: " + match2);
@@ -324,7 +311,8 @@ $(document).ready(function() {
         $('.notification').text('FIND ANOTHER!');
       }, 700);
     }
-    else {
+    else if (matched === 8) {
+      console.log("You have 8 matches!");
       matchElementColor = matchElement1.css('background-color');
       $("#match-icon-"+matched).css('background-color', matchElementColor);
       $("#match-icon-"+matched).addClass('icon-matched');
@@ -332,6 +320,9 @@ $(document).ready(function() {
       $('.notification').text('YOU WON!');
       $('#board-wrapper').addClass("you-won");
       setTimeout(renderRestartButton, 2000);
+    }
+    else {
+      console.log("correctMatch function error");
     }
   };
 
@@ -358,11 +349,12 @@ $(document).ready(function() {
 
     // Matched wrong and no lives left
     else if (lives <= 0) {
+      $('.hide').off('click');
       $('.notification').html("GAME OVER!");
       setTimeout(function(){
         $('.notification').addClass('fade-out');
-      }, 2250);
-      setTimeout(renderRestartButton, 2250);
+      }, 2000);
+      setTimeout(renderRestartButton, 2000);
     }
   };
 
@@ -373,10 +365,37 @@ $(document).ready(function() {
     $('.notification').html("<button id='restart-game'>RESTART</button>");
     $('.notification').addClass('fade-in');
     $('#restart-game').on("click", function() {
+      // Reset animation for matched icons before board swipe -- START
+      for (var i = 8; i > 0; i--) {
+        $("#match-icon-"+i).addClass('icon-matched-reset');
+      }
+      setTimeout(function() {
+        for (var i = 8; i > 0; i--) {
+          $("#match-icon-"+i).css('background-color', 'white');
+        }
+      }, 700);
+      setTimeout(function() {
+        for (var i = 8; i > 0; i--) {
+          $("#match-icon-"+matched).removeClass('icon-matched');
+          $("#match-icon-"+i).removeClass('icon-matched-reset');
+        }
+      }, 1000);
+      // Reset animation for matched icons before board swipe -- END
+      // Board swipe animation -- START
+      setTimeout(function() {
+        $("#board-wrapper").addClass('swipe-fade-out');
+        $("#board-wrapper").addClass('invisible');
+      }, 700);
+      setTimeout(function() {
+        $("#board-wrapper").removeClass('swipe-fade-out');
+        $("#board-wrapper").addClass('swipe-fade-in');
+        $("#board-wrapper").removeClass('invisible');
+      }, 1500);
+      // Board swipe animation -- END
       $('.notification').removeClass('fade-in');
       $(this).css('opacity', '0');
       $(this).off('click');
-      setTimeout(resetGame, 700);
+      setTimeout(resetGame, 1400);
     });
   };
 
