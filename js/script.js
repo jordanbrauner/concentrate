@@ -134,7 +134,6 @@ $(document).ready(function() {
 
   var resetGame = function() {
     // set board
-    $('#board-wrapper').removeClass("you-won");
     $('#difficulty button').off('click');
     $('.notification').removeClass('fade-out');
     $('.notification').html("");
@@ -249,17 +248,18 @@ $(document).ready(function() {
   /////////////////////////////////////////////////////////////////////////////
 
   // Handles tile clicks
-  var clickTile = function() {
-    if ((lives > 0) && (matched < 8) && (0 <= clicks <= 1)) {
+  var clickTile = function(e) {
+
+    if ($(e.target).hasClass('hide') && (lives > 0) && (matched < 8) && (0 <= clicks <= 1)) {
 
       // If you clicked the first tile this turn
       if (clicks === 0) {
         clicks = 1;
         console.log("you just clicked. Click count is: " + clicks);
-        $(this).removeClass('hide');
-        $(this).off('click');
-        matchElement1 = $(this);
-        match1 = $(this).attr('class');
+        $(e.target).removeClass('hide');
+        // $(this).off('click');
+        matchElement1 = $(e.target);
+        match1 = $(e.target).attr('class');
         console.log("match1: " + match1);
       }
 
@@ -267,10 +267,9 @@ $(document).ready(function() {
       else if (clicks === 1) {
         clicks = 2;
         console.log("you just clicked. Click count is: " + clicks);
-        $(this).removeClass('hide');
-        $(this).off('click');
-        matchElement2 = $(this);
-        match2 = $(this).attr('class');
+        $(e.target).removeClass('hide');
+        matchElement2 = $(e.target);
+        match2 = $(e.target).attr('class');
         console.log("match2: " + match2);
 
         // If it's a match or not
@@ -280,7 +279,6 @@ $(document).ready(function() {
           wrongMatch();
         }
         else {
-
           console.log("Error: Not a correct or wrong match!");
         }
       }
@@ -318,6 +316,8 @@ $(document).ready(function() {
       $("#match-icon-"+matched).addClass('icon-matched');
       $('.hide').off('click');
       $('.notification').text('YOU WON!');
+      $('#board-wrapper').removeClass("swipe-fade-in");
+      $('#board-wrapper').removeClass("you-won");
       $('#board-wrapper').addClass("you-won");
       setTimeout(renderRestartButton, 2000);
     }
@@ -372,11 +372,7 @@ $(document).ready(function() {
       setTimeout(function() {
         for (var i = 8; i > 0; i--) {
           $("#match-icon-"+i).css('background-color', 'white');
-        }
-      }, 700);
-      setTimeout(function() {
-        for (var i = 8; i > 0; i--) {
-          $("#match-icon-"+matched).removeClass('icon-matched');
+          $("#match-icon-"+i).removeClass('icon-matched');
           $("#match-icon-"+i).removeClass('icon-matched-reset');
         }
       }, 1000);
