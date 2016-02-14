@@ -6,8 +6,8 @@ $(document).ready(function() {
   /////////////////////////////////////////////////////////////////////////////
 
   var countdownNum = 3;
-  var clicks = 0;
-  var matched = 0;
+  clicks = 0;
+  matched = 0;
   var match1, match2;
   var matchElement1, matchElement2, matchElementColor;
   var wrong;
@@ -95,6 +95,7 @@ $(document).ready(function() {
 
   // Start game when user clicks on splash-image
   $('#splash-image').on('click', function() {
+    $(this).off('click');
     $('#splash-image').css("opacity", "0");
     $('#small-logo-1').show();
     $('#small-logo-2').show();
@@ -264,11 +265,12 @@ $(document).ready(function() {
 
   // Handles tile clicks
   var clickTile = function() {
-    if ((lives > 0) && (matched < 8)) {
+    if ((lives > 0) && (matched < 8) && (0 <= clicks <= 1)) {
 
       // If you clicked the first tile this turn
       if (clicks === 0) {
         clicks = 1;
+        console.log("you just clicked. Click count is: " + clicks);
         $(this).removeClass('hide');
         matchElement1 = $(this);
         match1 = $(this).attr('class');
@@ -278,7 +280,7 @@ $(document).ready(function() {
       // If you clicked the second tile this turn
       else if (clicks === 1) {
         clicks = 2;
-        $('.hide').off('click');
+        console.log("you just clicked. Click count is: " + clicks);
         $(this).removeClass('hide');
         matchElement2 = $(this);
         match2 = $(this).attr('class');
@@ -290,13 +292,19 @@ $(document).ready(function() {
         } else if (match1 !== match2) {
           wrongMatch();
         }
+        else {
+
+          console.log("Error: Not a correct or wrong match!");
+        }
       }
 
       // If you are clicking tiles after your second click that turn
-      else if (clicks > 1) {
-        $('.hide').off('click');
+      else {
         console.log("Not allowing click");
       }
+    }
+    else {
+      console.log("Not allowing click");
     }
   };
 
@@ -309,14 +317,18 @@ $(document).ready(function() {
       matchElementColor = matchElement1.css('background-color');
       $("#match-icon-"+matched).css('background-color', matchElementColor);
       $("#match-icon-"+matched).addClass('icon-matched');
-
+      match1 = undefined;
+      match2 = undefined;
       // Keep fast click bug from happening
       setTimeout(function() {
-        $('.hide').on('click', clickTile);
         $('.notification').text('FIND ANOTHER!');
       }, 700);
     }
     else {
+      matchElementColor = matchElement1.css('background-color');
+      $("#match-icon-"+matched).css('background-color', matchElementColor);
+      $("#match-icon-"+matched).addClass('icon-matched');
+      $('.hide').off('click');
       $('.notification').text('YOU WON!');
       $('#board-wrapper').addClass("you-won");
       setTimeout(renderRestartButton, 2000);
@@ -341,7 +353,6 @@ $(document).ready(function() {
       $('.notification').text('NOT A MATCH!');
       setTimeout(function() {
         $('.notification').text('FIND ANOTHER!');
-        $('.hide').on('click', clickTile);
       }, 700);
     }
 
@@ -356,6 +367,7 @@ $(document).ready(function() {
   };
 
   var renderRestartButton = function() {
+    $('.hide').off('click');
     $('.notification').html("");
     $('.notification').removeClass('fade-out');
     $('.notification').html("<button id='restart-game'>RESTART</button>");
