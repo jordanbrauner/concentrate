@@ -307,6 +307,7 @@ $(document).ready(function() {
     else {
       $('.notification').text('YOU WON!');
       $('#board-wrapper').addClass("you-won");
+      setTimeout(renderRestartButton, 2000);
     }
   };
 
@@ -334,16 +335,25 @@ $(document).ready(function() {
 
     // Matched wrong and no lives left
     else if (lives <= 0) {
-      // Create Restart Button
-      $('.notification').html("<button id='restart-game'>RESTART</button>");
-      $('.notification').addClass('start');
-      $('.notification').on("click", function() {
+      $('.notification').html("GAME OVER!");
+      setTimeout(function(){
         $('.notification').addClass('fade-out');
-        $('.notification').removeClass('start');
-        $(this).off('click');
-        setTimeout(resetGame, 700);
-      });
+      }, 2250);
+      setTimeout(renderRestartButton, 3000);
     }
+  };
+
+  var renderRestartButton = function() {
+    $('.notification').html("");
+    $('.notification').removeClass('fade-out');
+    $('.notification').html("<button id='restart-game'>RESTART</button>");
+    $('.notification').addClass('fade-in');
+    $('#restart-game').on("click", function() {
+      $('.notification').removeClass('fade-in');
+      $('.notification').addClass('fade-out');
+      $(this).off('click');
+      setTimeout(resetGame, 700);
+    });
   };
 
 });
