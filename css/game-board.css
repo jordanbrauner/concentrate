@@ -27,6 +27,7 @@ GAMEBOARD
 
 .notification.start:hover {
   color: #777;
+  cursor: pointer;
 }
 
 #board {
@@ -66,6 +67,7 @@ USER INTERFACE
 
 #restart-game:hover {
   background-color: #e55c00;
+  cursor: pointer;
 }
 
 button:focus {
@@ -73,7 +75,7 @@ button:focus {
 }
 
 /* Fade UI */
-#lives, #lives-left, #quote-wrapper {
+#lives, #lives-left, #streak, #win-streak, #quote-wrapper {
   transition: opacity 0.75s ease;
 }
 
@@ -81,7 +83,7 @@ button:focus {
   transition: opacity 0.35s ease;
 }
 
-#lives, #lives-left {
+#lives, #lives-left, #streak, #win-streak {
   position: absolute;
   font-family: 'Montserrat', sans-serif;
 }
@@ -96,6 +98,20 @@ button:focus {
 #lives-left {
   right: 80px;
   top: 119px;
+  font-size: 10px;
+  color: #999;
+}
+
+#streak {
+  right: 78px;
+  top: 15px;
+  font-size: 50px;
+  color: #6E6E6E;
+}
+
+#win-streak {
+  right: 80px;
+  top: 39px;
   font-size: 10px;
   color: #999;
 }
@@ -225,7 +241,6 @@ TILES - CLICKED
 }
 
 .color4 {
-  /*background-color: #ff689b; original*/
   background-color: #f96697;
 }
 
@@ -238,7 +253,6 @@ TILES - CLICKED
 }
 
 .color7 {
-  /*background-color: #ecc5c5;  original */
   background-color: #ecb2b2;
 }
 
@@ -261,7 +275,6 @@ TILES
 
 .hide {
   display: inline-block;
-  /*background-color: #cbcbcb;*/
   background-color: #d2d2d2;
   height: 85px;
   width: 85px;
@@ -272,4 +285,5 @@ TILES
 
 .hide:hover {
   background-color: #f3f3f3;
+  cursor: pointer;
 }
